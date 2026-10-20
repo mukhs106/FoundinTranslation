@@ -1,130 +1,229 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project 1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Sumana:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aaj Jaane Ki Zid Na Karo — Found in Translation</title>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="content">
-        <h1>2. Aaj Jaane Ki Zidd Na Karo</h1>
-    </div>
-    
-    <div class="grid-container">
-        <h2 class="text-1" style="font-family: 'Sumana', sans-serif;">आज जाने की ज़िद ना करो</h2>
-        <p class="text-1">
-            "Aaj Jaane Ki Zid Na Karo" is a timeless geet written by Pakistani poet Fayyaz Hashmi and composed by Sohail Rana. 
-            Originally popularized by classical vocalist Habib Wali Mohammad in the 1973 Pakistani film 'Badal Aur Bijli', 
-            the song later gained legendary status through ghazal singer Farida Khanum’s rendition in 1993. 
-            Sung in 'Raag Yaman Kalyan', this deeply romantic and melancholic piece expresses a lover's desperate plea for their beloved to stay a little longer, 
-            cherishing fleeting moments of togetherness. The song’s evocative lyrics and soul-stirring melody have made it an enduring classic, 
-            with many celebrated artists reinterpreting it over the years.
-        </p>
-    </div>
-    
-    <div class="text-lyrics-container">
-        <div class="text-9">
-            <h2>Lyrics</h2>
-            <p style="font-family: 'Sumana', sans-serif;">
-                आज जाने की ज़िद ना करो <br>
-                आज जाने की ज़िद ना करो <br>
-                यूँ ही पहलु में बैठे रहो <br>
-                आज जाने की ज़िद न करो <br><br>
-    
-                हाय मर जाएंगे <br>
-                हम तो लुट जाएंगे <br>
-                ऐसी बातें किया ना करो <br>
-                आज जाने की ज़िद ना करो <br><br>
-    
-                तुम ही सोचो ज़रा <br>
-                क्यूँ ना रोकें तुम्हें <br>
-                जान जाती है जब <br>
-                उठ के जाते हो तुम <br><br>
-    
-                तुमको अपनी क़सम जानेजां <br>
-                बात इतनी मेरी मान लो <br>
-                आज जाने की ज़िद ना करो <br><br>
-    
-                वक़्त की कैद में ज़िन्दगी है मगर <br>
-                चंद घड़ियां यही हैं जो आज़ाद हैं <br>
-                इनको खो कर कहीं जानेजाँ <br>
-                उम्र भर ना तरसते रहो <br><br>
-    
-                कितना मासूम रंगीन है ये समां <br>
-                हुस्न और इश्क़ की आज बैराज है <br>
-                कल की किसको ख़बर जानेजाँ <br>
-                रोक लो आज की रात को <br><br>
-    
-                आज जाने की ज़िद ना करो <br>
-                आज जाने की ज़िद ना करो
-            </p>
-        </div>
-    
-        <div class="text-8">
-            <h2>Translation</h2>
-            <p>
-                <strong>Don't insist on leaving today</strong> <br>
-                Just stay a little longer <br>
-                Sit close beside me <br><br>
-    
-                Oh, I swear I’ll perish <br>
-                I’ll be utterly lost <br>
-                Please don’t say such things <br>
-                Don't insist on leaving today <br><br>
-    
-                Think for a moment, my love <br>
-                How could I let you go? <br>
-                It feels like my life fades away <br>
-                Every time you rise to leave <br><br>
-    
-                For my sake, my love <br>
-                Grant me just this one wish <br>
-                Don’t insist on leaving today <br><br>
-    
-                Life is trapped within time’s grasp <br>
-                But these few moments are ours <br>
-                Lose them now, my love <br>
-                And you’ll long for them forever <br><br>
-    
-                The night is innocent and beautiful <br>
-                A rare meeting of love and desire <br>
-                Who knows what tomorrow brings? <br>
-                Hold onto this night, my love <br><br>
-    
-                <strong>Don't insist on leaving today</strong>
-            </p>
-        </div>
-    </div>
-    
-    
-  <header>
-    <div class="header-left">
-      <a href="song.html" class="no-underline"> 
-          <h3>[ghazals]</h3>
-      </a>
-  </div>
-  <div class="header-center">
-      <a href="index.html" class="no-underline">
-          <h3>[found in translation]</h3>
-      </a>
-  </div>
-  <div class="header-right">
-      <a href="info.html" class="no-underline">
-          <h3>[info]</h3>
-      </a>
-  </div>
+  <!--
+    Internal notes (not displayed):
+    Couplet IDs (s01–s07, stanzas as transcribed here) follow the source text's order and must not be renumbered.
+    Translations are placed beside the source stanza they render, by meaning, not by position.
+     - The Devanagari text below is the page's existing transcription (refrain repetitions included). Rekhta's geet text has more stanzas (roughly nine) and has not been checked line by line against this transcription; do not add the missing stanzas until checked.
+     - Unverified which rendition the transcription follows.
+     - Spelling corrected to match Rekhta: पहलु -> पहलू, बैराज -> मे'राज.
+     - No verified recording link found for Habib Wali Mohammad's film version or Farida Khanum's 1993 PTV recording.
+     - Line-level correspondence not verified; highlighting stays at stanza level.
+  -->
+  <header class="site-nav">
+    <a href="song.html">[ghazals]</a>
+    <a href="index.html">[found in translation]</a>
+    <a href="info.html">[info]</a>
   </header>
 
-    <!-- Next button -->
-    <div class="next-button-container">
-        <a href="song3.html"><button class="next-button">[next]</button></a>
-      </div>
+  <main>
+    <section class="work-head">
+      <span class="work-num">2.</span>
+      <h1 class="work-title">Aaj Jaane Ki Zid Na Karo</h1>
+      <p class="work-title-deva" lang="hi">आज जाने की ज़िद न करो</p>
+      <dl class="credits">
+        <div><dt>Lyricist</dt><dd>Fayyaz Hashmi<small>1920–2011</small></dd></div>
+        <div><dt>Form</dt><dd>Geet<small>often sung and listed as a ghazal</small></dd></div>
+        <div><dt>Music</dt><dd>Sohail Rana<small>Raag Yaman Kalyan</small></dd></div>
+        <div><dt>First sung by</dt><dd>Habib Wali Mohammad<small>film <i>Badal Aur Bijli</i>, 1973</small></dd></div>
+        <div><dt>English translation</dt><dd>Found in Translation</dd></div>
+      </dl>
+      <p class="intro">“Aaj Jaane Ki Zid Na Karo” is a timeless geet written by Pakistani poet Fayyaz Hashmi and composed by Sohail Rana. Originally popularized by classical vocalist Habib Wali Mohammad in the 1973 Pakistani film <i>Badal Aur Bijli</i>, the song later gained legendary status through ghazal singer Farida Khanum’s rendition in 1993. Sung in Raag Yaman Kalyan, this deeply romantic and melancholic piece expresses a lover’s desperate plea for their beloved to stay a little longer, cherishing fleeting moments of togetherness. Unlike the other pages here, it is a geet: its refrain returns, so repetition is part of the text rather than only of the performance.</p>
+    </section>
 
-  </body>
-  </html>
-  
+    <section class="section performance" aria-labelledby="perf-label">
+      <h2 class="section-label" id="perf-label">performance — choose a rendition</h2>
+      <fieldset class="renditions">
+        <legend class="visually-hidden">Rendition</legend>
+        <div class="rendition-options"></div>
+      </fieldset>
+      <p class="rendition-detail" aria-live="polite"></p>
+      <div class="vmap-wrap">
+        <p class="vmap-caption">Source order</p>
+        <ol class="vmap" aria-label="Verse map"></ol>
+        <p class="vmap-legend"><span class="lg-source">in the source text</span><span class="lg-unknown">not documented for this rendition</span><span class="lg-added">added in performance</span><span class="lg-omitted">omitted</span></p>
+      </div>
+      <script type="application/json" id="performance-data">
+{
+  "unit": "stanza",
+  "renditions": [
+    {
+      "id": "source",
+      "label": "the lyric",
+      "detail": "The lyric as transcribed on this page, in its own order. The refrain (shown lighter) returns within the text itself.",
+      "map": {
+        "core": "source"
+      }
+    },
+    {
+      "id": "habib-wali-mohammad",
+      "label": "Habib Wali Mohammad",
+      "detail": "<span class=\"who\">Habib Wali Mohammad</span>, playback for the film <i>Badal Aur Bijli</i> (1973); music by Sohail Rana. The first recorded version. No recording link has been verified for this page yet.",
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "farida-khanum",
+      "label": "Farida Khanum, 2015",
+      "detail": "<span class=\"who\">Farida Khanum</span>, Coke Studio Pakistan, Season 8, Episode 7 (2015) — a late performance of the song she made famous with her 1993 recording for Pakistan Television.",
+      "url": "https://www.youtube.com/watch?v=KDJL2FyRDeA",
+      "linkLabel": "watch",
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "asha-bhosle",
+      "label": "Asha Bhosle",
+      "detail": "<span class=\"who\">Asha Bhosle</span>, live at the Paramount, Oakland (2011; audience upload listed on Rekhta).",
+      "url": "https://www.youtube.com/watch?v=ZOImbmdKy8A",
+      "linkLabel": "watch",
+      "map": {
+        "core": "unknown"
+      }
+    }
+  ]
+}
+      </script>
+    </section>
+
+    <section class="section" aria-labelledby="poem-label">
+      <h2 class="section-label" id="poem-label">lyric &amp; translation — stanza by stanza, as transcribed here</h2>
+      <div class="columns-label" aria-hidden="true"><span>Urdu, in Devanagari</span><span class="tr-label">English translation</span></div>
+      <ol class="couplets">
+      <li class="couplet" id="s01" aria-label="stanza 1">
+        <span class="c-num" aria-hidden="true">1</span>
+        <p class="src" lang="hi">
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+          <span class="l">यूँ ही पहलू में बैठे रहो</span>
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">Don’t insist on leaving today</span>
+          <span class="l">Just stay a little longer</span>
+          <span class="l">Sit close beside me</span>
+        </p>
+        <div class="gloss"><dl><div><dt>ज़िद <i>zid</i></dt> <dd>— insistence, stubbornness</dd></div><div><dt>पहलू <i>pahlū</i></dt> <dd>— side; to sit in someone’s pahlū is to sit close beside them</dd></div></dl></div>
+      </li>
+      <li class="couplet" id="s02" aria-label="stanza 2">
+        <span class="c-num" aria-hidden="true">2</span>
+        <p class="src" lang="hi">
+          <span class="l">हाय मर जाएंगे</span>
+          <span class="l">हम तो लुट जाएंगे</span>
+          <span class="l">ऐसी बातें किया न करो</span>
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">Oh, I swear I’ll perish</span>
+          <span class="l">I’ll be utterly lost</span>
+          <span class="l">Please don’t say such things</span>
+          <span class="l">Don’t insist on leaving today</span>
+        </p>
+        <div class="gloss"><dl><div><dt>लुट जाना <i>luṭ jānā</i></dt> <dd>— to be robbed; to be undone</dd></div></dl></div>
+      </li>
+      <li class="couplet" id="s03" aria-label="stanza 3">
+        <span class="c-num" aria-hidden="true">3</span>
+        <p class="src" lang="hi">
+          <span class="l">तुम ही सोचो ज़रा</span>
+          <span class="l">क्यूँ न रोकें तुम्हें</span>
+          <span class="l">जान जाती है जब</span>
+          <span class="l">उठ के जाते हो तुम</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">Think for a moment, my love</span>
+          <span class="l">How could I let you go?</span>
+          <span class="l">It feels like my life fades away</span>
+          <span class="l">Every time you rise to leave</span>
+        </p>
+      </li>
+      <li class="couplet" id="s04" aria-label="stanza 4">
+        <span class="c-num" aria-hidden="true">4</span>
+        <p class="src" lang="hi">
+          <span class="l">तुमको अपनी क़सम जानेजाँ</span>
+          <span class="l">बात इतनी मेरी मान लो</span>
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">For my sake, my love</span>
+          <span class="l">Grant me just this one wish</span>
+          <span class="l">Don’t insist on leaving today</span>
+        </p>
+        <div class="gloss"><dl><div><dt>क़सम <i>qasam</i></dt> <dd>— oath — “I make you swear on yourself”</dd></div><div><dt>जानेजाँ <i>jān-e-jāṅ</i></dt> <dd>— life of my life, a term of endearment</dd></div></dl></div>
+      </li>
+      <li class="couplet" id="s05" aria-label="stanza 5">
+        <span class="c-num" aria-hidden="true">5</span>
+        <p class="src" lang="hi">
+          <span class="l">वक़्त की क़ैद में ज़िन्दगी है मगर</span>
+          <span class="l">चंद घड़ियां यही हैं जो आज़ाद हैं</span>
+          <span class="l">इनको खो कर कहीं जानेजाँ</span>
+          <span class="l">उम्र भर न तरसते रहो</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">Life is trapped within time’s grasp</span>
+          <span class="l">But these few moments are ours</span>
+          <span class="l">Lose them now, my love</span>
+          <span class="l">And you’ll long for them forever</span>
+        </p>
+        <div class="gloss"><dl><div><dt>क़ैद <i>qaid</i></dt> <dd>— captivity</dd></div><div><dt>तरसना <i>tarasnā</i></dt> <dd>— to long for, to pine</dd></div></dl></div>
+      </li>
+      <li class="couplet" id="s06" aria-label="stanza 6">
+        <span class="c-num" aria-hidden="true">6</span>
+        <p class="src" lang="hi">
+          <span class="l">कितना मासूम रंगीन है ये समां</span>
+          <span class="l">हुस्न और इश्क़ की आज मे'राज है</span>
+          <span class="l">कल की किसको ख़बर जानेजाँ</span>
+          <span class="l">रोक लो आज की रात को</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">The night is innocent and beautiful</span>
+          <span class="l">A rare meeting of love and desire</span>
+          <span class="l">Who knows what tomorrow brings?</span>
+          <span class="l">Hold onto this night, my love</span>
+        </p>
+        <div class="gloss"><dl><div><dt>समां <i>samāṅ</i></dt> <dd>— the scene, the atmosphere</dd></div><div><dt>मे'राज <i>me‘rāj</i></dt> <dd>— ascent, zenith — the highest point</dd></div></dl></div>
+      </li>
+      <li class="couplet" id="s07" aria-label="stanza 7">
+        <span class="c-num" aria-hidden="true">7</span>
+        <p class="src" lang="hi">
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+          <span class="l refrain">आज जाने की ज़िद न करो</span>
+        </p>
+        <p class="tr" lang="en">
+          <span class="l">Don’t insist on leaving today</span>
+        </p>
+      </li>
+      </ol>
+    </section>
+
+
+    <section class="section" aria-labelledby="sources-label">
+      <h2 class="section-label" id="sources-label">sources</h2>
+      <ul class="sources">
+      <li>Text: <a href="https://www.rekhta.org/geet/fayyaz-hashmi-geet">Rekhta — Fayyaz Hashmi, geet</a></li>
+      <li>Credits, raag and renditions: <a href="https://en.wikipedia.org/wiki/Aaj_Jaane_Ki_Zid_Na_Karo">Wikipedia — Aaj Jaane Ki Zid Na Karo</a></li>
+      <li>Coke Studio performance: <a href="https://arynews.tv/finally-a-reason-to-watch-coke-studio-farida-khanum-singing-aaj-jane-ki-zidd-na-karo">ARY News, October 2015</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <nav class="pager" aria-label="Previous and next">
+    <a class="prev" href="song1.html" rel="prev"><span class="dir">[previous]</span><span class="to">Ranjish Hi Sahi</span></a>
+    <a class="next" href="song3.html" rel="next"><span class="dir">[next]</span><span class="to">Baat Karni Mujhe Mushkil</span></a>
+  </nav>
+
+  <script src="ghazal.js" defer></script>
+</body>
+</html>

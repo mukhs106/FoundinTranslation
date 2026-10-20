@@ -1,244 +1,676 @@
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+/* Found in Translation — shared styles
+   Palette roles
+   --ink      body text, titles
+   --ink-2    supporting text (intros, credit values on hover)
+   --ink-3    labels, numerals, metadata (>= 4.5:1 on white)
+   --maroon   translation text, the site title, interactive states
+   --wash     the shared highlight behind a linked couplet
+   --rule     hairlines */
+
+:root {
+  --paper: #ffffff;
+  --ink: #161616;
+  --ink-2: #4a4a4a;
+  --ink-3: #6e6e6e;
+  --maroon: #850000;
+  --wash: #f8efef;
+  --rule: #e6e0e0;
+
+  --serif: "Instrument Serif", Georgia, serif;
+  --deva: "Sumana", "Instrument Serif", serif;
+
+  --gutter: clamp(16px, 5vw, 64px);
+  --measure: 1080px;
+  --ease: cubic-bezier(.2, .6, .2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 120px;
 }
 
 body {
-font-family: "instrument-serif", serif;
-margin-top: 40px;
-padding-top: 60px;
-overflow-x: hidden;
-}
-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 25px;
-background-color: #ffffff;
-position: fixed;
-top: 0;
-width: 100%;
-z-index: 10;
-}
-.header-left {
-display: flex;
-align-items: center;
-}
-.header-right {
-color: rgb(0, 0, 0);
-margin: 0;
-text-align: right;
-font-family: "instrument-serif", serif;
-font-weight: 700; /* Bold weight */
-}
-
-.next-button-container {
-text-align: right;
-margin-top: 20px;
-font-family: instrument-serif, serif;
-font-weight: lighter;
-}
-.next-button {
-border: none;
-font-family: "instrument-serif", serif;
-font-weight: lighter;
-font-size: x-large;
-background-color: rgba(255, 255, 255, 0);
-padding: 25px 75px;
-margin-left: 30px;
-margin-bottom: 20px;
-margin-top: 20px;
-}
-.next-button:hover {
-color: #a60000;
-}
-/* currently hidden 
-.scroll-to-top {
-position: fixed;
-bottom: 20px;
-right: 20px;
-width: 40px;
-height: 40px;
-cursor: pointer;
-z-index: 100;
-display: none;
-} */
-
-
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 6 equal */
-  gap: 10px; /* SPACE between */
-  width: 100%;
-  max-width: max-content; /* LIMIT ! */
-  margin: auto; /* CenterED */
-}
-
-.text-1 {
-  grid-column: 2 / span 3; /* Starts in column 1, for 2 columns */
-  word-wrap: break-word; /* Breaks long words */
-  overflow-wrap: break-word;
-}
-
-.text-2 {
-  grid-column: 3 / span 3; 
-  /* word-wrap: break-word;
-  overflow-wrap: break-word;*/
-}
-
-.text-3 {
-  grid-column: 2 / span 3; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-4 {
-  grid-column: 2 / span 3; /* text 4-7 for ghazals page */
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-5 {
-  grid-column: 4 / span 3; 
-  /* word-wrap: break-word;
-  overflow-wrap: break-word;*/
-}
-
-.text-6 {
-  grid-column: 2 / span 3; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-7 {
-  grid-column: 4 / span 3; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-lyrics-container {
-  display: grid;
-  grid-template-columns: minmax(500px, 1fr) minmax(500px, 1fr); /* Responsive column sizes */
-  gap: 20px; /* Space between columns */
-  width: 100%;
-  max-width: 900px; /* Prevents stretching too wide */
-  margin: auto; /* Center the text container */
-  align-items: stretch; /* Make both columns equal height */
-}
-
-.text-9 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: left;
-  margin-left: -55px; /* Moves the lyrics slightly to the left */
-  min-height: 100%; /* Ensures both columns stretch */
-}
-
-.text-8 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: left;
-  min-height: 100%; /* Ensures both columns stretch */
-  color: #9d0000;
-}
-
-.text-8 h2 {
-  color: #9d0000;
-}
-
-
-
-.no-underline {
-  text-decoration: none;
-  color: inherit;
-  }
-
-  .no-underline h2{
-    text-decoration: none;
-    color: inherit;
-    }
-
-  .no-underline:hover {
-    color: #a60000; /* Prevents color change on hover */
-  }
-
-.instrument-serif-regular {
-font-family: "Instrument Serif", serif;
-font-weight: 400;
-font-style: normal;
-}
-.instrument-serif-regular-italic {
-font-family: "Instrument Serif", serif;
-font-weight: 400;
-font-style: italic;
-}
-/* Apply specific font styles to elements */
-p {
-  font-family: "Instrument Serif", serif;
-  font-size: 30px;
-  font-weight: lighter;
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-bottom: 50px;
-}
-  h3 {
-  font-family: "Instrument Serif", serif;
-  font-size: 30px;
-  font-weight: lighter;
-  /* padding-left: 160px; */
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-bottom: 0px;
-  }
-h2 {
-font-family: "Instrument Serif", serif;
-font-size: 50px;
-font-weight: lighter;
-color: rgb(0, 0, 0);
-padding-left: 50px;
-padding-right: 50px;
-margin-bottom: 0px;
-line-height: 80px;
-}
-h1 {
-font-family: "Instrument Serif", serif;
-font-size: 150px;
-font-weight: lighter;
-color: #850000;
-padding-left: 50px;
-padding-right: 50px;
-/* padding-top: 20px;
-margin-bottom: 20px; */
-}
-
-.sumana-regular {
-  font-family: "Sumana", serif;
+  font-family: var(--serif);
   font-weight: 400;
-  font-style: normal;
+  color: var(--ink);
+  background: var(--paper);
+  padding-top: 96px;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 1px solid var(--maroon);
+  outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Bracketed navigation ---------- */
+
+header.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 24px var(--gutter);
+  background: var(--paper);
+}
+
+.site-nav a,
+.bracket {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color .18s var(--ease);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"],
+.bracket:hover {
+  color: var(--maroon);
+}
+
+/* ---------- Page frame ---------- */
+
+main {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 64px;
+}
+
+.page-title {
+  font-size: clamp(64px, 11vw, 150px);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.01em;
+  margin-bottom: 48px;
+}
+
+/* ---------- Song: title block ---------- */
+
+.work-head {
+  padding: 24px 0 40px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.work-num {
+  display: block;
+  font-size: 20px;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+
+.work-title {
+  font-size: clamp(52px, 8.5vw, 112px);
+  font-weight: 400;
+  line-height: .95;
+  letter-spacing: -.01em;
+}
+
+.work-title-deva {
+  font-family: var(--deva);
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 400;
+  color: var(--ink-2);
+  margin-top: 14px;
+}
+
+.credits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 20px 32px;
+  margin-top: 36px;
+}
+
+.credits dt {
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-3);
+}
+
+.credits dd {
+  font-size: 21px;
   line-height: 1.3;
 }
 
-.sumana-bold {
-  font-family: "Sumana", serif;
-  font-weight: 700;
-  font-style: normal;
-  line-height: 1.3;
+.credits dd small {
+  display: block;
+  font-size: 16px;
+  color: var(--ink-3);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-header {
-flex-direction: column;
-align-items: flex-start;
+.intro {
+  max-width: 38em;
+  margin-top: 36px;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--ink-2);
 }
-.header-center p, .header-right p {
-font-size: 16px;
+
+/* ---------- Section labels ---------- */
+
+.section {
+  padding: 40px 0 8px;
 }
- .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on smaller screens */
+
+.section-label {
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-3);
+  margin-bottom: 20px;
+}
+
+.columns-label {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 0 20px 10px 64px;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--rule);
+}
+
+.columns-label .tr-label {
+  color: var(--maroon);
+}
+
+/* ---------- Performance: rendition selector + verse map ---------- */
+
+.renditions {
+  border: 0;
+}
+
+.rendition-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+}
+
+.rendition-options label {
+  position: relative;
+  font-size: 21px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color .18s var(--ease);
+}
+
+.rendition-options input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.rendition-options label:hover,
+.rendition-options input:checked + span {
+  color: var(--maroon);
+}
+
+.rendition-options input:focus-visible + span {
+  outline: 1px solid var(--maroon);
+  outline-offset: 3px;
+}
+
+.rendition-detail {
+  margin-top: 18px;
+  min-height: 3.2em;
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  max-width: 44em;
+}
+
+.rendition-detail .who {
+  color: var(--ink);
+}
+
+.rendition-detail a {
+  color: var(--maroon);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  white-space: nowrap;
+}
+
+.vmap-wrap {
+  margin-top: 18px;
+}
+
+.vmap-caption {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+
+.vmap {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.vmap button {
+  font-family: var(--serif);
+  font-size: 17px;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 8px;
+  border: 1px solid var(--ink-3);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background-color .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+
+.vmap button[data-state="unknown"] {
+  border-style: dashed;
+  color: var(--ink-3);
+}
+
+.vmap button[data-state="omitted"] {
+  border-color: var(--rule);
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+
+.vmap button[data-state="added"] {
+  border-color: var(--maroon);
+  color: var(--maroon);
+}
+
+.vmap button sup {
+  font-size: 12px;
+  margin-left: 1px;
+}
+
+.vmap button.is-active,
+.vmap button:hover {
+  background: var(--wash);
+  border-color: var(--maroon);
+}
+
+.vmap-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin-top: 10px;
+  font-size: 15px;
+  color: var(--ink-3);
+}
+
+.vmap-legend span::before {
+  content: "";
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 6px;
+  border: 1px solid var(--ink-3);
+  vertical-align: -1px;
+}
+
+.vmap-legend .lg-unknown::before { border-style: dashed; }
+.vmap-legend .lg-added::before { border-color: var(--maroon); }
+.vmap-legend .lg-omitted::before { border-color: var(--rule); }
+
+/* ---------- Couplets ---------- */
+
+.couplets {
+  list-style: none;
+}
+
+.couplet {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 48px;
+  padding: 22px 20px 22px 64px;
+  border-bottom: 1px solid var(--rule);
+  transition: background-color .22s var(--ease);
+  cursor: default;
+}
+
+.couplet:focus {
+  outline: none;
+}
+
+.couplet:focus-visible {
+  outline: 1px solid var(--maroon);
+  outline-offset: -1px;
+}
+
+.couplet.is-active {
+  background: var(--wash);
+}
+
+.c-num {
+  position: absolute;
+  left: 20px;
+  top: 26px;
+  font-size: 17px;
+  color: var(--ink-3);
+  transition: color .22s var(--ease);
+}
+
+.couplet.is-active .c-num {
+  color: var(--maroon);
+}
+
+.src {
+  font-family: var(--deva);
+  font-size: 22px;
+  line-height: 1.75;
+}
+
+.src .l,
+.tr .l {
+  display: block;
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.src .refrain {
+  color: var(--ink-2);
+}
+
+.tr {
+  font-size: 25px;
+  line-height: 1.38;
+  color: var(--maroon);
+}
+
+.tr-missing {
+  color: var(--ink-3);
+  font-size: 18px;
+  font-style: italic;
+}
+
+.src-note {
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink-3);
+}
+
+/* Glossary: revealed with its couplet when scripting is on, always shown otherwise */
+.gloss {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows .26s var(--ease), opacity .26s var(--ease);
+}
+
+.gloss > dl {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  padding-top: 8px;
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink-2);
+}
+
+.gloss dt {
+  display: inline;
+  font-family: var(--deva);
+  color: var(--ink);
+}
+
+.gloss dt i {
+  font-family: var(--serif);
+  color: var(--ink-3);
+}
+
+.gloss dd {
+  display: inline;
+}
+
+.js .gloss {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+
+.js .couplet.is-active .gloss {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.added-intro {
+  font-size: 19px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  max-width: 40em;
+  margin-bottom: 16px;
+}
+
+/* ---------- Sources ---------- */
+
+.sources {
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--ink-3);
+  list-style: none;
+}
+
+.sources a {
+  color: var(--ink-2);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.sources a:hover {
+  color: var(--maroon);
+}
+
+/* ---------- Previous / next ---------- */
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 32px var(--gutter) 56px;
+  border-top: 1px solid var(--rule);
+}
+
+.pager a {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color .18s var(--ease);
+}
+
+.pager .next {
+  grid-column: 2;
+  text-align: right;
+}
+
+.pager .dir {
+  display: block;
+  font-size: 26px;
+}
+
+.pager .to {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-3);
+  transition: color .18s var(--ease);
+}
+
+.pager a:hover,
+.pager a:hover .to {
+  color: var(--maroon);
+}
+
+/* ---------- Index of ghazals / info ---------- */
+
+.entries {
+  list-style: none;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 0 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.entry .n {
+  font-size: 22px;
+  color: var(--ink-3);
+  padding-top: 10px;
+}
+
+.entry h2 {
+  font-size: clamp(34px, 4.6vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.entry h2 a {
+  text-decoration: none;
+  transition: color .18s var(--ease);
+}
+
+.entry h2 a:hover {
+  color: var(--maroon);
+}
+
+.entry .meta {
+  margin-top: 6px;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-3);
+}
+
+.entry p {
+  margin-top: 14px;
+  max-width: 38em;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+.prose {
+  max-width: 40em;
+}
+
+.prose h2 {
+  font-size: clamp(34px, 4.6vw, 50px);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-top: 48px;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  margin-top: 14px;
+  font-size: 23px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 72px;
   }
-  .text-1, .text-7 {
-    grid-column: 1 / span 2; /* Make text full width */
+
+  html {
+    scroll-padding-top: 90px;
+  }
+
+  header.site-nav {
+    padding: 18px var(--gutter);
+  }
+
+  .site-nav a {
+    font-size: 18px;
+  }
+
+  .columns-label {
+    display: none;
+  }
+
+  .couplet {
+    grid-template-columns: 1fr;
+    padding: 20px 12px 20px 40px;
+  }
+
+  .c-num {
+    left: 12px;
+    top: 24px;
+  }
+
+  .src {
+    font-size: 19px;
+    line-height: 1.65;
+  }
+
+  .tr {
+    margin-top: 6px;
+    font-size: 22px;
+  }
+
+  .intro,
+  .prose p,
+  .entry p {
+    font-size: 19px;
+  }
+
+  .entry {
+    grid-template-columns: 1fr;
+  }
+
+  .entry .n {
+    padding-top: 0;
+  }
+
+  .pager .dir {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
 }
