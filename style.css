@@ -1,3 +1,27 @@
+/* Found in Translation: one stylesheet for every page.
+   Two reds and black on white; Instrument Serif for English, Sumana for Devanagari. */
+:root {
+  --black: #000000;      /* original text */
+  --white: #ffffff;
+  --red: #850000;        /* titles, current page, hover, focus */
+  --red-text: #9d0000;   /* translation */
+
+  --serif: "Instrument Serif", serif;
+  --deva: "Sumana", serif;
+
+  /* Type scale: each maximum is the original desktop size */
+  --text: clamp(20px, 1rem + 1.1vw, 30px);
+  --text-nav: clamp(18px, 0.9rem + 1.2vw, 30px);
+  --h2: clamp(30px, 1.2rem + 2.2vw, 50px);
+  --h1: clamp(64px, 2rem + 9vw, 150px);
+  --title-song: clamp(44px, 1.5rem + 5vw, 96px);
+  --title-home: clamp(64px, 2rem + 8vw, 130px);
+
+  --gutter: clamp(16px, 3.5vw, 50px);
+  --measure: 1100px;
+  --dim: 0.3;            /* receding text: highlight, unsung couplets */
+}
+
 *{
 margin: 0;
 padding: 0;
@@ -5,6 +29,8 @@ box-sizing: border-box;
 }
 
 body {
+background-color: var(--white);
+color: var(--black);
 font-family: "instrument-serif", serif;
 margin-top: 40px;
 padding-top: 60px;
@@ -12,7 +38,7 @@ overflow-x: hidden;
 }
 header {
 padding: clamp(12px, 2vw, 25px) clamp(16px, 5.25vw, 75px); /* the side padding used to sit on each nav link */
-background-color: #ffffff;
+background-color: var(--white);
 position: fixed;
 top: 0;
 width: 100%;
@@ -27,15 +53,15 @@ align-items: center;
 column-gap: 0.5em;
 }
 .nav-link {
-font-family: "Instrument Serif", serif;
-font-size: clamp(18px, 0.9rem + 1.2vw, 30px);
+font-family: var(--serif);
+font-size: var(--text-nav);
 padding: 0;
 }
 .nav-link[aria-current] {
-color: #850000;
+color: var(--red);
 }
 .nav-link:focus-visible {
-outline: 1px solid #850000;
+outline: 1px solid var(--red);
 outline-offset: 4px;
 }
 
@@ -44,11 +70,11 @@ outline-offset: 4px;
 .pager {
   display: flex;
   justify-content: space-between;
-  max-width: 1100px;
+  max-width: var(--measure);
   margin: 0 auto;
-  padding: 25px clamp(16px, 3.5vw, 50px) 50px;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
+  padding: 25px var(--gutter) 50px;
+  font-family: var(--serif);
+  font-size: var(--text);
 }
 
 .pager a:only-child {
@@ -56,7 +82,7 @@ outline-offset: 4px;
 }
 
 .pager a:focus-visible {
-  outline: 1px solid #850000;
+  outline: 1px solid var(--red);
   outline-offset: 4px;
 }
 /* currently hidden 
@@ -125,9 +151,9 @@ display: none;
 
 /* Couplets: each unit pairs the original with its translation (built by render.js) */
 .couplets {
-  max-width: 1100px;
+  max-width: var(--measure);
   margin: 0 auto 50px;
-  padding: 0 clamp(16px, 3.5vw, 50px);
+  padding: 0 var(--gutter);
 }
 
 .couplets-head,
@@ -143,8 +169,8 @@ display: none;
 
 .couplet {
   position: relative; /* anchors .couplet-n */
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
+  font-family: var(--serif);
+  font-size: var(--text);
   line-height: 1.3;
   margin-bottom: 30px;
   overflow-wrap: break-word;
@@ -152,16 +178,16 @@ display: none;
 }
 
 .couplet .original {
-  font-family: "Sumana", serif;
-  color: #000000;
+  font-family: var(--deva);
+  color: var(--black);
 }
 
 .translation {
-  color: #9d0000;
+  color: var(--red-text);
 }
 
 .deva {
-  font-family: "Sumana", serif;
+  font-family: var(--deva);
 }
 
 /* [literal] / [translation] */
@@ -174,9 +200,9 @@ display: none;
 
 .view-toggle button {
   font: inherit;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
-  color: #000000;
+  font-family: var(--serif);
+  font-size: var(--text);
+  color: var(--black);
   background: none;
   border: 0;
   padding: 0;
@@ -184,18 +210,18 @@ display: none;
 }
 
 .view-toggle button[aria-pressed="true"] {
-  color: #9d0000;
+  color: var(--red-text);
 }
 
 .view-toggle button:hover {
-  color: #850000;
+  color: var(--red);
 }
 
 /* Literal view: the gloss sits above the translation, so the gap shows */
 .gloss {
   display: none;
   font-style: italic;
-  color: #000000;
+  color: var(--black);
 }
 
 .couplets[data-view="literal"] .gloss {
@@ -220,20 +246,20 @@ display: none;
 }
 
 .term[aria-expanded="true"] {
-  text-decoration-color: #9d0000;
+  text-decoration-color: var(--red-text);
 }
 
 .term:focus-visible {
-  outline: 1px solid #850000;
+  outline: 1px solid var(--red);
   outline-offset: 2px;
 }
 
 .term-note {
   display: block;
-  font-family: "Instrument Serif", serif;
+  font-family: var(--serif);
   font-style: italic;
   font-size: 0.75em;
-  color: #000000;
+  color: var(--black);
   padding-left: 1em;
   margin-bottom: 0.3em;
 }
@@ -253,12 +279,12 @@ display: none;
 /* Highlight: everything except the active couplet (and line) recedes */
 .couplets.is-active .couplet:not(.is-active),
 .couplet.has-line .line:not(.is-active) {
-  opacity: 0.3;
+  opacity: var(--dim);
 }
 
 /* A couplet the selected version does not sing; hovering or focusing it brings it back */
 .couplet.unsung {
-  opacity: 0.3;
+  opacity: var(--dim);
 }
 
 .couplets .couplet.unsung.is-active {
@@ -269,9 +295,9 @@ display: none;
   position: absolute;
   left: -2em;
   top: 0.4em;
-  font-family: "Instrument Serif", serif;
+  font-family: var(--serif);
   font-size: 0.6em;
-  color: #000000;
+  color: var(--black);
 }
 
 .couplet:focus {
@@ -280,9 +306,9 @@ display: none;
 
 /* Versions: renditions and the map of which couplets each one sings, in order */
 .versions {
-  max-width: 1100px;
+  max-width: var(--measure);
   margin: 0 auto 50px;
-  padding: 0 clamp(16px, 3.5vw, 50px);
+  padding: 0 var(--gutter);
 }
 
 .versions h2 {
@@ -298,14 +324,14 @@ display: none;
   flex-wrap: wrap;
   align-items: baseline;
   column-gap: 1em;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
+  font-family: var(--serif);
+  font-size: var(--text);
   line-height: 1.3;
 }
 
 .version-pick {
   font: inherit;
-  color: #000000;
+  color: var(--black);
   background: none;
   border: 0;
   padding: 0;
@@ -332,17 +358,17 @@ display: none;
 }
 
 .version-pick[aria-pressed="true"] {
-  color: #9d0000;
+  color: var(--red-text);
 }
 
 .version-pick:hover,
 .version-link:hover {
-  color: #850000;
+  color: var(--red);
 }
 
 .version-pick:focus-visible,
 .version-link:focus-visible {
-  outline: 1px solid #850000;
+  outline: 1px solid var(--red);
   outline-offset: 4px;
 }
 
@@ -352,7 +378,7 @@ display: none;
 }
 
 .couplet:focus-visible {
-  outline: 1px solid #850000;
+  outline: 1px solid var(--red);
   outline-offset: 10px;
 }
 
@@ -376,74 +402,74 @@ display: none;
     }
 
   .no-underline:hover {
-    color: #a60000; /* Prevents color change on hover */
+    color: var(--red); /* was a third, off-palette red */
   }
 
 .instrument-serif-regular {
-font-family: "Instrument Serif", serif;
+font-family: var(--serif);
 font-weight: 400;
 font-style: normal;
 }
 .instrument-serif-regular-italic {
-font-family: "Instrument Serif", serif;
+font-family: var(--serif);
 font-weight: 400;
 font-style: italic;
 }
 /* Apply specific font styles to elements */
 p {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
+  font-family: var(--serif);
+  font-size: var(--text);
   font-weight: lighter;
-  padding-left: clamp(16px, 3.5vw, 50px);
-  padding-right: clamp(16px, 3.5vw, 50px);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   margin-bottom: 50px;
 }
   h3 {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(20px, 1rem + 1.1vw, 30px);
+  font-family: var(--serif);
+  font-size: var(--text);
   font-weight: lighter;
   /* padding-left: 160px; */
-  padding-left: clamp(16px, 3.5vw, 50px);
-  padding-right: clamp(16px, 3.5vw, 50px);
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   margin-bottom: 0px;
   }
 h2 {
-font-family: "Instrument Serif", serif;
-font-size: clamp(30px, 1.2rem + 2.2vw, 50px);
+font-family: var(--serif);
+font-size: var(--h2);
 font-weight: lighter;
-color: rgb(0, 0, 0);
-padding-left: clamp(16px, 3.5vw, 50px);
-padding-right: clamp(16px, 3.5vw, 50px);
+color: var(--black);
+padding-left: var(--gutter);
+padding-right: var(--gutter);
 margin-bottom: 0px;
 line-height: 1.6;
 }
 h1 {
-font-family: "Instrument Serif", serif;
-font-size: clamp(64px, 2rem + 9vw, 150px);
+font-family: var(--serif);
+font-size: var(--h1);
 font-weight: lighter;
-color: #850000;
-padding-left: clamp(16px, 3.5vw, 50px);
-padding-right: clamp(16px, 3.5vw, 50px);
+color: var(--red);
+padding-left: var(--gutter);
+padding-right: var(--gutter);
 /* padding-top: 20px;
 margin-bottom: 20px; */
 }
 
 /* Song pages: a smaller title, so the verses lead */
 .song-title {
-  font-size: clamp(44px, 1.5rem + 5vw, 96px);
+  font-size: var(--title-song);
   line-height: 1.05;
   margin-bottom: 0.3em;
 }
 
 .sumana-regular {
-  font-family: "Sumana", serif;
+  font-family: var(--deva);
   font-weight: 400;
   font-style: normal;
   line-height: 1.3;
 }
 
 .sumana-bold {
-  font-family: "Sumana", serif;
+  font-family: var(--deva);
   font-weight: 700;
   font-style: normal;
   line-height: 1.3;
@@ -491,12 +517,12 @@ margin-bottom: 20px; */
 }
 
 #title {
-  font-size: clamp(64px, 2rem + 8vw, 130px);
+  font-size: var(--title-home);
   text-align: center;
   top: 13vw;
   position: relative;
   z-index: 1; /* above the animation */
-  color: #850000;
+  color: var(--red);
 }
 
 .animated-text-wrapper {
@@ -511,7 +537,7 @@ margin-bottom: 20px; */
 
 .text-container {
   font-weight: lighter;
-  font-family: "Sumana", serif;
+  font-family: var(--deva);
   font-size: 40px;
   line-height: normal;
   position: absolute;
@@ -529,7 +555,7 @@ margin-bottom: 20px; */
   transform-origin: center center;
   opacity: 0;
   position: absolute;
-  color: rgb(0, 0, 0);
+  color: var(--black);
 }
 
 .text-container > div:nth-child(1) {
