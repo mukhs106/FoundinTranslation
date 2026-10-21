@@ -117,34 +117,74 @@ display: none;
   overflow-wrap: break-word;
 }
 
-.text-lyrics-container {
+/* Couplets: each unit pairs the original with its translation (built by render.js) */
+.couplets {
+  max-width: 1100px;
+  margin: 0 auto 50px;
+  padding: 0 50px;
+}
+
+.couplets-head,
+.couplet {
   display: grid;
-  grid-template-columns: minmax(500px, 1fr) minmax(500px, 1fr); /* Responsive column sizes */
-  gap: 20px; /* Space between columns */
-  width: 100%;
-  max-width: 900px; /* Prevents stretching too wide */
-  margin: auto; /* Center the text container */
-  align-items: stretch; /* Make both columns equal height */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* never wider than the page */
+  column-gap: 50px;
 }
 
-.text-9 {
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-align: left;
-  margin-left: -55px; /* Moves the lyrics slightly to the left */
-  min-height: 100%; /* Ensures both columns stretch */
+.couplets-head h2 {
+  padding: 0;
 }
 
-.text-8 {
-  word-wrap: break-word;
+.couplet {
+  font-family: "Instrument Serif", serif;
+  font-size: 30px;
+  line-height: 1.3;
+  margin-bottom: 30px;
   overflow-wrap: break-word;
-  text-align: left;
-  min-height: 100%; /* Ensures both columns stretch */
+  transition: opacity 0.2s;
+}
+
+.couplet .original {
+  font-family: "Sumana", serif;
+  color: #000000;
+}
+
+.translation {
   color: #9d0000;
 }
 
-.text-8 h2 {
-  color: #9d0000;
+.deva {
+  font-family: "Sumana", serif;
+}
+
+.couplet .line {
+  display: block;
+  position: relative; /* fixed paint order, so dimming a line never changes which line is under the pointer */
+  padding-left: 1em; /* hanging indent: a wrapped line reads as a continuation */
+  text-indent: -1em;
+  transition: opacity 0.2s;
+}
+
+/* Highlight: everything except the active couplet (and line) recedes */
+.couplets.is-active .couplet:not(.is-active),
+.couplet.has-line .line:not(.is-active) {
+  opacity: 0.3;
+}
+
+.couplet:focus {
+  outline: none;
+}
+
+.couplet:focus-visible {
+  outline: 1px solid #850000;
+  outline-offset: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .couplet,
+  .couplet .line {
+    transition: none;
+  }
 }
 
 
