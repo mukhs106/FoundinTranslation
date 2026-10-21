@@ -1,0 +1,352 @@
+{
+  "slug": "ranjish-hi-sahi",
+  "legacy": "song1.html",
+  "num": 1,
+  "title": {
+    "latn": "Ranjish Hi Sahi",
+    "deva": "रंजिश ही सही"
+  },
+  "unit": "couplet",
+  "credits": [
+    {
+      "label": "Poet",
+      "value": "Ahmad Faraz",
+      "note": "1931–2008"
+    },
+    {
+      "label": "Form",
+      "value": "Ghazal",
+      "note": "six couplets in the published text"
+    },
+    {
+      "label": "First sung by",
+      "value": "Iqbal Bano",
+      "note": null
+    },
+    {
+      "label": "Popularised by",
+      "value": "Mehdi Hassan",
+      "note": null
+    }
+  ],
+  "intro": "“Ranjish Hi Sahi” is a deeply emotional Urdu ghazal written by Ahmad Faraz and made famous by Mehdi Hassan. The song captures the anguish of unrequited love and longing, where the singer pleads for their beloved to return, even if only to hurt them again. It reflects themes of pain, estrangement, and the paradox of love, where even suffering in love is preferable to complete abandonment.",
+  "scripts": {
+    "deva": {
+      "source": "transcription by Found in Translation"
+    }
+  },
+  "translations": {
+    "en": {
+      "kind": "translation",
+      "label": "English translation"
+    }
+  },
+  "couplets": [
+    {
+      "id": "c01",
+      "num": "1",
+      "text": {
+        "deva": [
+          "रंजिश ही सही दिल ही दुखाने के लिए आ",
+          "आ फिर से मुझे छोड़ के जाने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Let it be anguish, even to torment my heart, come,",
+          "Come once again, even if only to abandon me."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "रंजिश"
+          },
+          "translit": "ranjish",
+          "meaning": "resentment, estrangement"
+        }
+      ]
+    },
+    {
+      "id": "c02",
+      "num": "2",
+      "text": {
+        "deva": [
+          "कुछ तो मिरे पिंदार-ए-मोहब्बत का भरम रख",
+          "तू भी तो कभी मुझ को मनाने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Respect, if only a little, the pride of my love for you,",
+          "Come, someday, to console me as well."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "पिंदार-ए-मोहब्बत"
+          },
+          "translit": "pindār-e-mohabbat",
+          "meaning": "the pride, the self-regard, of love"
+        },
+        {
+          "term": {
+            "deva": "भरम"
+          },
+          "translit": "bharam",
+          "meaning": "an appearance kept up; dignity"
+        }
+      ]
+    },
+    {
+      "id": "c03",
+      "num": "3",
+      "text": {
+        "deva": [
+          "पहले से मरासिम न सही फिर भी कभी तो",
+          "रस्म-ओ-रह-ए-दुनिया ही निभाने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "If not for past affections, then at least for the sake of propriety,",
+          "Come, if only to honor the customs of this world."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "मरासिम"
+          },
+          "translit": "marāsim",
+          "meaning": "ties, relations"
+        },
+        {
+          "term": {
+            "deva": "रस्म-ओ-रह-ए-दुनिया"
+          },
+          "translit": "rasm-o-rah-e-duniyā",
+          "meaning": "the customs and ways of the world"
+        }
+      ]
+    },
+    {
+      "id": "c04",
+      "num": "4",
+      "text": {
+        "deva": [
+          "किस किस को बताएँगे जुदाई का सबब हम",
+          "तू मुझ से ख़फ़ा है तो ज़माने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "How many people will I explain my sorrow to?",
+          "If you are mad at me, then come, if only for the world’s sake."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "सबब"
+          },
+          "translit": "sabab",
+          "meaning": "cause, reason"
+        },
+        {
+          "term": {
+            "deva": "ज़माना"
+          },
+          "translit": "zamāna",
+          "meaning": "the world, people at large"
+        }
+      ]
+    },
+    {
+      "id": "c05",
+      "num": "5",
+      "text": {
+        "deva": [
+          "इक उम्र से हूँ लज़्ज़त-ए-गिर्या से भी महरूम",
+          "ऐ राहत-ए-जाँ मुझ को रुलाने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "For ages, I have been deprived of the solace of tears,",
+          "O peace of my soul, come back, if only to make me weep."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "लज़्ज़त-ए-गिर्या"
+          },
+          "translit": "lazzat-e-giryā",
+          "meaning": "the pleasure of weeping"
+        },
+        {
+          "term": {
+            "deva": "महरूम"
+          },
+          "translit": "mahrūm",
+          "meaning": "deprived"
+        },
+        {
+          "term": {
+            "deva": "राहत-ए-जाँ"
+          },
+          "translit": "rāhat-e-jāṅ",
+          "meaning": "comfort of my life: the beloved"
+        }
+      ]
+    },
+    {
+      "id": "c06",
+      "num": "6",
+      "text": {
+        "deva": [
+          "अब तक दिल-ए-ख़ुश-फ़ह्‌म को तुझ से हैं उमीदें",
+          "ये आख़िरी शम'एँ भी बुझाने के लिए आ"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Till now, my naive heart still holds some hope in you,",
+          "Come, and snuff out even these last flickering candles of expectation."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "दिल-ए-ख़ुश-फ़हम"
+          },
+          "translit": "dil-e-ḳhush-faham",
+          "meaning": "a heart that believes what it hopes"
+        }
+      ]
+    }
+  ],
+  "renditions": [
+    {
+      "id": "source",
+      "label": "The poem",
+      "about": "Ahmad Faraz’s six couplets as published on Rekhta. Rekhta notes that the ghazal also circulates with verses that are not in the published text.",
+      "map": {
+        "core": "source"
+      }
+    },
+    {
+      "id": "mehdi-hassan",
+      "label": "Mehdi Hassan",
+      "performer": "Mehdi Hassan",
+      "context": "Live recording, archival upload listed on Rekhta",
+      "about": "He is documented as always singing two added couplets, shown below the poem. Which of Faraz’s couplets he sings here, and in what order, is not documented.",
+      "player": {
+        "type": "youtube",
+        "id": "p8jP7EtrcwI"
+      },
+      "map": {
+        "core": "unknown",
+        "added": [
+          "a01",
+          "a02"
+        ]
+      }
+    },
+    {
+      "id": "farida-khanum",
+      "label": "Farida Khanum",
+      "performer": "Farida Khanum",
+      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "GsJColGDQ64"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "habib-wali-mohammad",
+      "label": "Habib Wali Mohammad",
+      "performer": "Habib Wali Mohammad",
+      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "SfPQbsBhVZ0"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "runa-laila",
+      "label": "Runa Laila",
+      "performer": "Runa Laila",
+      "context": "Upload listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "lUtUqD-9Yf4"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Text and recordings",
+      "title": "Rekhta, “ranjish hī sahī”",
+      "href": "https://www.rekhta.org/ghazals/ranjish-hii-sahii-dil-hii-dukhaane-ke-liye-aa-ahmad-faraz-ghazals"
+    },
+    {
+      "label": "First singer and popularity",
+      "title": "Wikipedia, Ranjish Hi Sahi",
+      "href": "https://en.wikipedia.org/wiki/Ranjish_Hi_Sahi"
+    },
+    {
+      "label": "The added couplets",
+      "title": "Rana Safvi, “Ranjish hi sahi explained”",
+      "href": "https://ranasafvi.com/ranjish-hi-sahi-explained/"
+    }
+  ],
+  "flags": [
+    "Original page listed translations in the order c01, c03, c04, c02, c05, c06, a01, a02. Unverified whether this follows a specific Mehdi Hassan recording; if confirmed, add it as map.order for that rendition.",
+    "a01/a02 Urdu/Devanagari text not transcribed on this page; add only from a checked source.",
+    "Composer of Mehdi Hassan's setting not documented in sources consulted.",
+    "Translator credit shown as 'Found in Translation' pending the author's preferred name."
+  ],
+  "added": [
+    {
+      "id": "a01",
+      "num": "+1",
+      "text": {},
+      "textNote": "Sung by Mehdi Hassan. Not in the published text.",
+      "translation": {
+        "en": [
+          "Agreed, concealing love is the true essence of love,",
+          "But one day, come secretly, to confess it in silence."
+        ]
+      }
+    },
+    {
+      "id": "a02",
+      "num": "+2",
+      "text": {},
+      "textNote": "Sung by Mehdi Hassan. Not in the published text.",
+      "translation": {
+        "en": [
+          "Just as you have excuses for never arriving,",
+          "Someday, make an excuse to never leave."
+        ]
+      }
+    }
+  ],
+  "addedIntro": "Mehdi Hassan sings two further couplets as part of this ghazal. They are not in Faraz’s text as published on Rekhta; one source attributes them to the poet Talib Baghpati. They are kept apart here rather than credited to Faraz.",
+  "listing": {
+    "meta": "Ahmad Faraz · popularised by Mehdi Hassan · two couplets added in performance",
+    "summary": "“Ranjish Hi Sahi” is a deeply emotional Urdu ghazal written by Ahmad Faraz and made famous by Mehdi Hassan. The song captures the anguish of unrequited love and longing, where the singer pleads for their beloved to return, even if only to hurt them again."
+  }
+}

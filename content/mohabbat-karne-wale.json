@@ -1,0 +1,377 @@
+{
+  "slug": "mohabbat-karne-wale",
+  "legacy": "song4.html",
+  "num": 4,
+  "title": {
+    "latn": "Mohabbat Karne Wale",
+    "deva": "मोहब्बत करने वाले कम न होंगे"
+  },
+  "unit": "couplet",
+  "credits": [
+    {
+      "label": "Poet",
+      "value": "Hafeez Hoshiarpuri",
+      "note": "1912–1973"
+    },
+    {
+      "label": "Form",
+      "value": "Ghazal",
+      "note": "nine couplets"
+    },
+    {
+      "label": "Popularised by",
+      "value": "Mehdi Hassan",
+      "note": null
+    }
+  ],
+  "intro": "This ghazal by Hafeez Hoshiarpuri explores themes of unfulfilled love, longing, and separation. The poet reflects on the idea that while there may be many admirers of the beloved, he himself will not be among them. He contrasts the weight of personal sorrow against the world’s collective grief, suggesting that the pain of loving and losing the beloved surpasses all other troubles. Despite the possibility of reunion, the scars of separation remain, making love a bittersweet experience. The poem captures heartbreak, quiet acceptance, and the melancholic fate of the unrequited lover.",
+  "scripts": {
+    "deva": {
+      "source": "transcription by Found in Translation"
+    }
+  },
+  "translations": {
+    "en": {
+      "kind": "translation",
+      "label": "English translation"
+    }
+  },
+  "couplets": [
+    {
+      "id": "c01",
+      "num": "1",
+      "text": {
+        "deva": [
+          "मोहब्बत करने वाले कम न होंगे",
+          "तिरी महफ़िल में लेकिन हम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "There will be no shortage of those who love you,",
+          "But in your gathering, I will not be present."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "महफ़िल"
+          },
+          "translit": "mehfil",
+          "meaning": "gathering"
+        }
+      ]
+    },
+    {
+      "id": "c02",
+      "num": "2",
+      "text": {
+        "deva": [
+          "मैं अक्सर सोचता हूँ फूल कब तक",
+          "शरीक-ए-गिर्या-ए-शबनम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "I often wonder, how long will flowers",
+          "Continue to share the tears of the dewdrop?"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "शरीक-ए-गिर्या-ए-शबनम"
+          },
+          "translit": "sharīk-e-giryā-e-shabnam",
+          "meaning": "partners in the weeping of the dew"
+        }
+      ]
+    },
+    {
+      "id": "c03",
+      "num": "3",
+      "text": {
+        "deva": [
+          "ज़रा देर-आश्ना चश्म-ए-करम है",
+          "सितम ही इश्क़ में पैहम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Your merciful gaze is fleeting,",
+          "Yet love is not always filled with suffering."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "देर-आश्ना"
+          },
+          "translit": "der-āshnā",
+          "meaning": "slow to warm, late to recognise"
+        },
+        {
+          "term": {
+            "deva": "पैहम"
+          },
+          "translit": "paiham",
+          "meaning": "unceasing"
+        }
+      ]
+    },
+    {
+      "id": "c04",
+      "num": "4",
+      "text": {
+        "deva": [
+          "दिलों की उलझनें बढ़ती रहेंगी",
+          "अगर कुछ मशवरे बाहम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "The confusions of hearts will only grow,",
+          "If lovers do not share their counsel."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "बाहम"
+          },
+          "translit": "bāham",
+          "meaning": "together, mutual"
+        }
+      ]
+    },
+    {
+      "id": "c05",
+      "num": "5",
+      "text": {
+        "deva": [
+          "ज़माने भर के ग़म या इक तिरा ग़म",
+          "ये ग़म होगा तो कितने ग़म न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "The grief of the entire world or just your sorrow:",
+          "If your pain exists, what other pains could remain?"
+        ]
+      }
+    },
+    {
+      "id": "c06",
+      "num": "6",
+      "text": {
+        "deva": [
+          "कहूँ बेदर्द क्यूँ अहल-ए-जहाँ को",
+          "वो मेरे हाल से महरम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Why should I call the people of the world heartless?",
+          "They are simply unaware of my condition."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "अहल-ए-जहाँ"
+          },
+          "translit": "ahl-e-jahāṅ",
+          "meaning": "the people of the world"
+        },
+        {
+          "term": {
+            "deva": "महरम"
+          },
+          "translit": "mahram",
+          "meaning": "intimate with, privy to"
+        }
+      ]
+    },
+    {
+      "id": "c07",
+      "num": "7",
+      "text": {
+        "deva": [
+          "हमारे दिल में सैल-ए-गिर्या होगा",
+          "अगर बा-दीदा-ए-पुर-नम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "My heart will be flooded with tears,",
+          "If my eyes do not carry their usual sorrow."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "सैल-ए-गिर्या"
+          },
+          "translit": "sail-e-giryā",
+          "meaning": "a flood of weeping"
+        },
+        {
+          "term": {
+            "deva": "दीदा-ए-पुर-नम"
+          },
+          "translit": "dīda-e-pur-nam",
+          "meaning": "tear-filled eyes"
+        }
+      ]
+    },
+    {
+      "id": "c08",
+      "num": "8",
+      "text": {
+        "deva": [
+          "अगर तू इत्तिफ़ाक़न मिल भी जाए",
+          "तिरी फ़ुर्क़त के सदमे कम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Even if by some chance I meet you,",
+          "The pain of separation will never diminish."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "इत्तिफ़ाक़न"
+          },
+          "translit": "ittifāqan",
+          "meaning": "by chance"
+        },
+        {
+          "term": {
+            "deva": "फ़ुर्क़त"
+          },
+          "translit": "furqat",
+          "meaning": "separation"
+        }
+      ]
+    },
+    {
+      "id": "c09",
+      "num": "9",
+      "text": {
+        "deva": [
+          "'हफ़ीज़' उन से मैं जितना बद-गुमाँ हूँ",
+          "वो मुझ से उस क़दर बरहम न होंगे"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Hafeez, no matter how much I distrust them,",
+          "They will never be as displeased with me as I am with them."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "'हफ़ीज़'"
+          },
+          "translit": "Hafeez",
+          "meaning": "the poet’s pen name, signed into the last couplet"
+        },
+        {
+          "term": {
+            "deva": "बद-गुमाँ"
+          },
+          "translit": "bad-gumāṅ",
+          "meaning": "suspicious, mistrustful"
+        },
+        {
+          "term": {
+            "deva": "बरहम"
+          },
+          "translit": "barham",
+          "meaning": "angry, put out"
+        }
+      ]
+    }
+  ],
+  "renditions": [
+    {
+      "id": "source",
+      "label": "The poem",
+      "about": "Hafeez Hoshiarpuri’s nine couplets as published on Rekhta.",
+      "map": {
+        "core": "source"
+      }
+    },
+    {
+      "id": "mehdi-hassan",
+      "label": "Mehdi Hassan",
+      "performer": "Mehdi Hassan",
+      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "about": "He first popularised the ghazal.",
+      "player": {
+        "type": "youtube",
+        "id": "pgO6l1deNzU"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "iqbal-bano",
+      "label": "Iqbal Bano",
+      "performer": "Iqbal Bano",
+      "context": "Archival upload listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "81tUtM_OglY"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "arooj-aftab",
+      "label": "Arooj Aftab, 2021",
+      "performer": "Arooj Aftab",
+      "context": "“Mohabbat”, from Vulture Prince (New Amsterdam, 2021). Official audio on the artist’s Bandcamp",
+      "about": "Grammy, Best Global Music Performance. She sings three of the nine couplets; which three is not yet documented here.",
+      "player": {
+        "type": "bandcamp",
+        "track": "332579873",
+        "href": "https://aroojaftab.bandcamp.com/track/mohabbat"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Text and recordings",
+      "title": "Rekhta, “mohabbat karne vāle kam na honge”",
+      "href": "https://www.rekhta.org/ghazals/mohabbat-karne-vaale-kam-na-honge-hafeez-hoshiarpuri-ghazals"
+    },
+    {
+      "label": "Poet and renditions",
+      "title": "Wikipedia, Mohabbat (song)",
+      "href": "https://en.wikipedia.org/wiki/Mohabbat_(song)"
+    },
+    {
+      "label": "Album",
+      "title": "New Amsterdam Records, Vulture Prince",
+      "href": "https://www.newamrecords.org/albums/vulture-prince-arooj-aftab"
+    }
+  ],
+  "flags": [
+    "Poet corrected from 'Hafeez Jalandhari' to Hafeez Hoshiarpuri (Rekhta, Wikipedia).",
+    "Arooj Aftab sings three couplets (Wikipedia); which three is not yet documented, so her map stays 'not documented'.",
+    "Translations of c03 and c07 loosen the source sense; author to review."
+  ],
+  "listing": {
+    "meta": "Hafeez Hoshiarpuri · from Mehdi Hassan to Arooj Aftab",
+    "summary": "There will be no shortage of those who love you, but I will not be among them. A ghazal of separation whose sorrow, the poet suggests, outweighs the grief of the whole world."
+  }
+}

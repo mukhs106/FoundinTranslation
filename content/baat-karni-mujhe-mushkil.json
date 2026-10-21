@@ -1,0 +1,434 @@
+{
+  "slug": "baat-karni-mujhe-mushkil",
+  "legacy": "song3.html",
+  "num": 3,
+  "title": {
+    "latn": "Baat Karni Mujhe Mushkil",
+    "deva": "बात करनी मुझे मुश्किल",
+    "arab": "بات کرنی مجھے مشکل"
+  },
+  "unit": "couplet",
+  "credits": [
+    {
+      "label": "Poet",
+      "value": "Bahadur Shah Zafar",
+      "note": "1775–1862, the last Mughal emperor"
+    },
+    {
+      "label": "Form",
+      "value": "Ghazal",
+      "note": "nine couplets"
+    }
+  ],
+  "intro": "This ghazal by Bahadur Shah Zafar is a poignant expression of longing, loss, and the passage of time. The poet reflects on how life, love, and companionship have changed, lamenting that conversations and gatherings, once effortless and joyous, have now become difficult and burdened with sorrow. The verses explore themes of restlessness, heartbreak, and the transformative power of love and separation. Through evocative imagery of eyes casting spells, reflections illuminating, and chains echoing in solitude, Zafar captures a deep sense of nostalgia and despair. The ghazal resonates not just as a personal lament but as a reflection of the decline of the Mughal era, mirroring the poet’s own struggles and the fading grandeur of his time.",
+  "scripts": {
+    "deva": {
+      "source": "transcription by Found in Translation, matching Rekhta"
+    },
+    "arab": {
+      "source": "Rekhta"
+    },
+    "latn": {
+      "source": "Rekhta"
+    }
+  },
+  "translations": {
+    "en": {
+      "kind": "translation",
+      "label": "English translation"
+    }
+  },
+  "couplets": [
+    {
+      "id": "c01",
+      "num": "1",
+      "text": {
+        "deva": [
+          "बात करनी मुझे मुश्किल कभी ऐसी तो न थी",
+          "जैसी अब है तिरी महफ़िल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "بات کرنی مجھے مشکل کبھی ایسی تو نہ تھی",
+          "جیسی اب ہے تری محفل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "baat karnī mujhe mushkil kabhī aisī to na thī",
+          "jaisī ab hai tirī mahfil kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "It was never this difficult for me to speak,",
+          "Nor was your company ever quite like this before."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "महफ़िल",
+            "arab": "محفل"
+          },
+          "translit": "mehfil",
+          "meaning": "a gathering; here, the beloved’s company"
+        }
+      ]
+    },
+    {
+      "id": "c02",
+      "num": "2",
+      "text": {
+        "deva": [
+          "ले गया छीन के कौन आज तिरा सब्र ओ क़रार",
+          "बे-क़रारी तुझे ऐ दिल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "لے گیا چھین کے کون آج ترا صبر و قرار",
+          "بے قراری تجھے اے دل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "le gayā chhīn ke kaun aaj tirā sabr o qarār",
+          "be-qarārī tujhe ai dil kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Who has stolen away your peace today, O my heart?",
+          "You were never this restless before."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "सब्र ओ क़रार",
+            "arab": "صبر و قرار"
+          },
+          "translit": "sabr o qarār",
+          "meaning": "patience and calm"
+        }
+      ]
+    },
+    {
+      "id": "c03",
+      "num": "3",
+      "text": {
+        "deva": [
+          "उस की आँखों ने ख़ुदा जाने किया क्या जादू",
+          "कि तबीअ'त मिरी माइल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "اس کی آنکھوں نے خدا جانے کیا کیا جادو",
+          "کہ طبیعت مری مائل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "us kī āñkhoñ ne ḳhudā jaane kiyā kyā jaadū",
+          "ki tabī.at mirī maa.il kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "God knows what sorcery their eyes have cast,",
+          "That my heart bends toward them like never before."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "माइल",
+            "arab": "مائل"
+          },
+          "translit": "māil",
+          "meaning": "inclined, drawn toward"
+        }
+      ]
+    },
+    {
+      "id": "c04",
+      "num": "4",
+      "text": {
+        "deva": [
+          "अक्स-ए-रुख़्सार ने किस के है तुझे चमकाया",
+          "ताब तुझ में मह-ए-कामिल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "عکس رخسار نے کس کے ہے تجھے چمکایا",
+          "تاب تجھ میں مہ کامل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "aks-e-ruḳhsār ne kis ke hai tujhe chamkāyā",
+          "taab tujh meñ mah-e-kāmil kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "O moon, what secret light has my beloved’s reflection gifted you,",
+          "That your radiance shines fuller than ever before?"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "अक्स-ए-रुख़्सार",
+            "arab": "عکس رخسار"
+          },
+          "translit": "aks-e-ruḳhsār",
+          "meaning": "the reflection of a face"
+        },
+        {
+          "term": {
+            "deva": "मह-ए-कामिल",
+            "arab": "مہ کامل"
+          },
+          "translit": "mah-e-kāmil",
+          "meaning": "the full moon"
+        }
+      ]
+    },
+    {
+      "id": "c05",
+      "num": "5",
+      "text": {
+        "deva": [
+          "अब की जो राह-ए-मोहब्बत में उठाई तकलीफ़",
+          "सख़्त होती हमें मंज़िल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "اب کی جو راہ محبت میں اٹھائی تکلیف",
+          "سخت ہوتی ہمیں منزل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "ab kī jo rāh-e-mohabbat meñ uThā.ī taklīf",
+          "saḳht hotī hameñ manzil kabhī aisī to na thī"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "राह-ए-मोहब्बत",
+            "arab": "راہ محبت"
+          },
+          "translit": "rāh-e-mohabbat",
+          "meaning": "the road of love"
+        }
+      ]
+    },
+    {
+      "id": "c06",
+      "num": "6",
+      "text": {
+        "deva": [
+          "पा-ए-कूबाँ कोई ज़िंदाँ में नया है मजनूँ",
+          "आती आवाज़-ए-सलासिल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "پائے کوباں کوئی زنداں میں نیا ہے مجنوں",
+          "آتی آواز سلاسل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "pā-e-kūbāñ koī zindāñ meñ nayā hai majnūñ",
+          "aatī āvāz-e-salāsil kabhī aisī to na thī"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "ज़िंदाँ",
+            "arab": "زنداں"
+          },
+          "translit": "zindāṅ",
+          "meaning": "prison"
+        },
+        {
+          "term": {
+            "deva": "मजनूँ",
+            "arab": "مجنوں"
+          },
+          "translit": "Majnūṅ",
+          "meaning": "Layla’s lover, the figure of love as madness"
+        },
+        {
+          "term": {
+            "deva": "सलासिल",
+            "arab": "سلاسل"
+          },
+          "translit": "salāsil",
+          "meaning": "chains"
+        }
+      ]
+    },
+    {
+      "id": "c07",
+      "num": "7",
+      "text": {
+        "deva": [
+          "निगह-ए-यार को अब क्यूँ है तग़ाफ़ुल ऐ दिल",
+          "वो तिरे हाल से ग़ाफ़िल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "نگہ یار کو اب کیوں ہے تغافل اے دل",
+          "وہ ترے حال سے غافل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "nigah-e-yār ko ab kyuuñ hai taġhāful ai dil",
+          "vo tire haal se ġhāfil kabhī aisī to na thī"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "तग़ाफ़ुल",
+            "arab": "تغافل"
+          },
+          "translit": "taġhāful",
+          "meaning": "studied neglect, feigned indifference"
+        }
+      ]
+    },
+    {
+      "id": "c08",
+      "num": "8",
+      "text": {
+        "deva": [
+          "चश्म-ए-क़ातिल मिरी दुश्मन थी हमेशा लेकिन",
+          "जैसी अब हो गई क़ातिल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "چشم قاتل مری دشمن تھی ہمیشہ لیکن",
+          "جیسی اب ہو گئی قاتل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "chashm-e-qātil mirī dushman thī hamesha lekin",
+          "jaisī ab ho ga.ī qātil kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Your deadly eyes have always been my foe,",
+          "But never before have they been this lethal."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "चश्म-ए-क़ातिल",
+            "arab": "چشم قاتل"
+          },
+          "translit": "chashm-e-qātil",
+          "meaning": "the murderous eye"
+        }
+      ]
+    },
+    {
+      "id": "c09",
+      "num": "9",
+      "text": {
+        "deva": [
+          "क्या सबब तू जो बिगड़ता है 'ज़फ़र' से हर बार",
+          "ख़ू तिरी हूर-शमाइल कभी ऐसी तो न थी"
+        ],
+        "arab": [
+          "کیا سبب تو جو بگڑتا ہے ظفرؔ سے ہر بار",
+          "خو تری حور شمائل کبھی ایسی تو نہ تھی"
+        ],
+        "latn": [
+          "kyā sabab tū jo bigaḌtā hai 'zafar' se har baar",
+          "ḳhū tirī hūr-shamā.il kabhī aisī to na thī"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Why do you turn against me, Zafar, time and again?",
+          "This was never your nature, O my angelic beloved."
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "'ज़फ़र'",
+            "arab": "ظفرؔ"
+          },
+          "translit": "Zafar",
+          "meaning": "the poet’s pen name, signed into the last couplet"
+        },
+        {
+          "term": {
+            "deva": "हूर-शमाइल",
+            "arab": "حور شمائل"
+          },
+          "translit": "hūr-shamāil",
+          "meaning": "with the grace of a houri"
+        }
+      ]
+    }
+  ],
+  "renditions": [
+    {
+      "id": "source",
+      "label": "The poem",
+      "about": "Zafar’s nine couplets as published on Rekhta. This page translates six of them.",
+      "map": {
+        "core": "source"
+      }
+    },
+    {
+      "id": "mehdi-hassan",
+      "label": "Mehdi Hassan",
+      "performer": "Mehdi Hassan",
+      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "Whbfw_xWcvs"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "farida-khanum",
+      "label": "Farida Khanum",
+      "performer": "Farida Khanum",
+      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "huajWc8XyRE"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "talat-aziz",
+      "label": "Talat Aziz",
+      "performer": "Talat Aziz",
+      "context": "Live at Jashn-e-Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "0X9dcTE6ypw"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Text in Urdu, Devanagari and Roman; recordings",
+      "title": "Rekhta, “bāt karnī mujhe mushkil”",
+      "href": "https://www.rekhta.org/ghazals/baat-karnii-mujhe-mushkil-kabhii-aisii-to-na-thii-bahadur-shah-zafar-ghazals"
+    },
+    {
+      "label": "Poet",
+      "title": "Rekhta, Bahadur Shah Zafar",
+      "href": "https://www.rekhta.org/poets/bahadur-shah-zafar/profile"
+    }
+  ],
+  "flags": [
+    "Original page listed translations in the order c01, c02, c08, c03, c04, c09; unverified whether this follows a particular rendition.",
+    "c05, c06, c07 have no translation on the page.",
+    "c09 translation addresses 'Zafar' as the one turning away; the source asks the beloved why they quarrel with Zafar. Author to review.",
+    "No composer documented; recordings below are archival/festival uploads listed on Rekhta."
+  ],
+  "listing": {
+    "meta": "Bahadur Shah Zafar · nine couplets, six translated · Devanagari, Urdu and Roman",
+    "summary": "The last Mughal emperor laments that speech, company and the heart itself were never this difficult before: a personal lament that also reads as the fading of an era."
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "slug": "aaj-jaane-ki-zid-na-karo",
+  "legacy": "song2.html",
+  "num": 2,
+  "title": {
+    "latn": "Aaj Jaane Ki Zid Na Karo",
+    "deva": "आज जाने की ज़िद न करो"
+  },
+  "unit": "stanza",
+  "credits": [
+    {
+      "label": "Lyricist",
+      "value": "Fayyaz Hashmi",
+      "note": "1920–2011"
+    },
+    {
+      "label": "Form",
+      "value": "Geet",
+      "note": "often sung and listed as a ghazal"
+    },
+    {
+      "label": "Music",
+      "value": "Sohail Rana",
+      "note": "Raag Yaman Kalyan"
+    },
+    {
+      "label": "First sung by",
+      "value": "Habib Wali Mohammad",
+      "note": "film <i>Badal Aur Bijli</i>, 1973"
+    }
+  ],
+  "intro": "“Aaj Jaane Ki Zid Na Karo” is a timeless geet written by Pakistani poet Fayyaz Hashmi and composed by Sohail Rana. Originally popularized by classical vocalist Habib Wali Mohammad in the 1973 Pakistani film <i>Badal Aur Bijli</i>, the song later gained legendary status through ghazal singer Farida Khanum’s rendition in 1993. Sung in Raag Yaman Kalyan, this deeply romantic and melancholic piece expresses a lover’s desperate plea for their beloved to stay a little longer, cherishing fleeting moments of togetherness. Unlike the other pages here, it is a geet: its refrain returns, so repetition is part of the text rather than only of the performance.",
+  "scripts": {
+    "deva": {
+      "source": "transcription by Found in Translation"
+    }
+  },
+  "translations": {
+    "en": {
+      "kind": "translation",
+      "label": "English translation"
+    }
+  },
+  "couplets": [
+    {
+      "id": "s01",
+      "num": "1",
+      "text": {
+        "deva": [
+          "~आज जाने की ज़िद न करो",
+          "~आज जाने की ज़िद न करो",
+          "यूँ ही पहलू में बैठे रहो",
+          "~आज जाने की ज़िद न करो"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Don’t insist on leaving today",
+          "Just stay a little longer",
+          "Sit close beside me"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "ज़िद"
+          },
+          "translit": "zid",
+          "meaning": "insistence, stubbornness"
+        },
+        {
+          "term": {
+            "deva": "पहलू"
+          },
+          "translit": "pahlū",
+          "meaning": "side; to sit in someone’s pahlū is to sit close beside them"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "num": "2",
+      "text": {
+        "deva": [
+          "हाय मर जाएंगे",
+          "हम तो लुट जाएंगे",
+          "ऐसी बातें किया न करो",
+          "~आज जाने की ज़िद न करो"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Oh, I swear I’ll perish",
+          "I’ll be utterly lost",
+          "Please don’t say such things",
+          "Don’t insist on leaving today"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "लुट जाना"
+          },
+          "translit": "luṭ jānā",
+          "meaning": "to be robbed; to be undone"
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "num": "3",
+      "text": {
+        "deva": [
+          "तुम ही सोचो ज़रा",
+          "क्यूँ न रोकें तुम्हें",
+          "जान जाती है जब",
+          "उठ के जाते हो तुम"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Think for a moment, my love",
+          "How could I let you go?",
+          "It feels like my life fades away",
+          "Every time you rise to leave"
+        ]
+      }
+    },
+    {
+      "id": "s04",
+      "num": "4",
+      "text": {
+        "deva": [
+          "तुमको अपनी क़सम जानेजाँ",
+          "बात इतनी मेरी मान लो",
+          "~आज जाने की ज़िद न करो"
+        ]
+      },
+      "translation": {
+        "en": [
+          "For my sake, my love",
+          "Grant me just this one wish",
+          "Don’t insist on leaving today"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "क़सम"
+          },
+          "translit": "qasam",
+          "meaning": "oath: “I make you swear on yourself”"
+        },
+        {
+          "term": {
+            "deva": "जानेजाँ"
+          },
+          "translit": "jān-e-jāṅ",
+          "meaning": "life of my life, a term of endearment"
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "num": "5",
+      "text": {
+        "deva": [
+          "वक़्त की क़ैद में ज़िन्दगी है मगर",
+          "चंद घड़ियां यही हैं जो आज़ाद हैं",
+          "इनको खो कर कहीं जानेजाँ",
+          "उम्र भर न तरसते रहो"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Life is trapped within time’s grasp",
+          "But these few moments are ours",
+          "Lose them now, my love",
+          "And you’ll long for them forever"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "क़ैद"
+          },
+          "translit": "qaid",
+          "meaning": "captivity"
+        },
+        {
+          "term": {
+            "deva": "तरसना"
+          },
+          "translit": "tarasnā",
+          "meaning": "to long for, to pine"
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "num": "6",
+      "text": {
+        "deva": [
+          "कितना मासूम रंगीन है ये समां",
+          "हुस्न और इश्क़ की आज मे'राज है",
+          "कल की किसको ख़बर जानेजाँ",
+          "रोक लो आज की रात को"
+        ]
+      },
+      "translation": {
+        "en": [
+          "The night is innocent and beautiful",
+          "A rare meeting of love and desire",
+          "Who knows what tomorrow brings?",
+          "Hold onto this night, my love"
+        ]
+      },
+      "gloss": [
+        {
+          "term": {
+            "deva": "समां"
+          },
+          "translit": "samāṅ",
+          "meaning": "the scene, the atmosphere"
+        },
+        {
+          "term": {
+            "deva": "मे'राज"
+          },
+          "translit": "me‘rāj",
+          "meaning": "ascent, zenith: the highest point"
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "num": "7",
+      "text": {
+        "deva": [
+          "~आज जाने की ज़िद न करो",
+          "~आज जाने की ज़िद न करो"
+        ]
+      },
+      "translation": {
+        "en": [
+          "Don’t insist on leaving today"
+        ]
+      }
+    }
+  ],
+  "renditions": [
+    {
+      "id": "source",
+      "label": "The lyric",
+      "about": "The lyric as transcribed on this page, in its own order. The refrain, shown lighter, returns within the text itself.",
+      "map": {
+        "core": "source"
+      }
+    },
+    {
+      "id": "habib-wali-mohammad",
+      "label": "Habib Wali Mohammad, 1973",
+      "performer": "Habib Wali Mohammad",
+      "context": "Playback for the film Badal Aur Bijli (1973), music by Sohail Rana",
+      "about": "The first recorded version.",
+      "missing": "No verified recording of the film version has been found yet.",
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "farida-khanum",
+      "label": "Farida Khanum, 2015",
+      "performer": "Farida Khanum",
+      "context": "Coke Studio Pakistan, Season 8, Episode 7 (2015)",
+      "about": "A late performance of the song she made famous with her 1993 recording for Pakistan Television.",
+      "player": {
+        "type": "youtube",
+        "id": "KDJL2FyRDeA"
+      },
+      "link": {
+        "href": "https://www.youtube.com/watch?v=jrubkqwQbso",
+        "label": "Official audio on YouTube (opens YouTube; it cannot be embedded)"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    },
+    {
+      "id": "asha-bhosle",
+      "label": "Asha Bhosle",
+      "performer": "Asha Bhosle",
+      "context": "Live at the Paramount, Oakland (2011). Audience upload listed on Rekhta",
+      "player": {
+        "type": "youtube",
+        "id": "ZOImbmdKy8A"
+      },
+      "map": {
+        "core": "unknown"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "label": "Text",
+      "title": "Rekhta, Fayyaz Hashmi, geet",
+      "href": "https://www.rekhta.org/geet/fayyaz-hashmi-geet"
+    },
+    {
+      "label": "Credits, raag and renditions",
+      "title": "Wikipedia, Aaj Jaane Ki Zid Na Karo",
+      "href": "https://en.wikipedia.org/wiki/Aaj_Jaane_Ki_Zid_Na_Karo"
+    },
+    {
+      "label": "Coke Studio performance",
+      "title": "ARY News, October 2015",
+      "href": "https://arynews.tv/finally-a-reason-to-watch-coke-studio-farida-khanum-singing-aaj-jane-ki-zidd-na-karo"
+    }
+  ],
+  "flags": [
+    "The Devanagari text below is the page's existing transcription (refrain repetitions included). Rekhta's geet text has more stanzas (roughly nine) and has not been checked line by line against this transcription; do not add the missing stanzas until checked.",
+    "Unverified which rendition the transcription follows.",
+    "Spelling corrected to match Rekhta: पहलु -> पहलू, बैराज -> मे'राज.",
+    "No verified recording link found for Habib Wali Mohammad's film version or Farida Khanum's 1993 PTV recording.",
+    "Line-level correspondence not verified; highlighting stays at stanza level."
+  ],
+  "listing": {
+    "meta": "Fayyaz Hashmi · music by Sohail Rana · a geet, with its own refrain",
+    "summary": "A timeless geet first sung by Habib Wali Mohammad in the 1973 film <i>Badal Aur Bijli</i>, and later made legendary by Farida Khanum: a lover’s plea for the beloved to stay a little longer."
+  }
+}

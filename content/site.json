@@ -1,0 +1,46 @@
+{
+  "order": [
+    "ranjish-hi-sahi",
+    "aaj-jaane-ki-zid-na-karo",
+    "baat-karni-mujhe-mushkil",
+    "mohabbat-karne-wale"
+  ],
+  "home": {
+    "drift": [
+      { "script": "deva", "text": "फ़ाउंड इन ट्रांसलेशन" },
+      { "script": "arab", "text": "بات کرنی مجھے مشکل", "source": "Bahadur Shah Zafar, via Rekhta" },
+      { "script": "deva", "text": "फ़ाउंड" },
+      { "script": "arab", "text": "کبھی ایسی تو نہ تھی", "source": "Bahadur Shah Zafar, via Rekhta" },
+      { "script": "deva", "text": "ट्रांसलेशन" },
+      { "script": "arab", "text": "جیسی اب ہے تری محفل", "source": "Bahadur Shah Zafar, via Rekhta" },
+      { "script": "deva", "text": "कभी ऐसी तो न थी", "source": "Bahadur Shah Zafar" }
+    ]
+  },
+  "info": [
+    {
+      "heading": "what is a <em>ghazal?</em>",
+      "body": "Ghazals are poetry, music, and longing woven into words. Their meanings shift like light on water: fluid, elusive, never quite the same twice. Here you’ll find handpicked ghazals, paired with translations that aim not to replace, but to reveal the essence hidden between the lines."
+    },
+    {
+      "heading": "why translate the untranslatable?",
+      "body": "The translations of ghazals online often lose their soul. This project is an attempt to give them back some of their magic. Instead of word-for-word translation, I focus on evoking the feeling, rhythm, and intent behind each verse."
+    },
+    {
+      "heading": "poem, translation, performance",
+      "body": "A ghazal reaches most listeners through a singer, not a page. Each entry keeps the poem in the poet’s own order, sets each translation beside the couplet it carries, and lets you choose a recording to hear what changed along the way: couplets left out, repeated, or added by the performer. Where that is not documented, the page says so rather than guessing."
+    },
+    {
+      "heading": "one language, several scripts",
+      "body": "Urdu poetry is often read in Devanagari, the script used for Hindi, but writing it in Devanagari does not make it a Hindi translation. Where a poem is available in more than one script, you can choose to read it in Devanagari, in Urdu’s own Nastaliq script, or in Roman letters, and keep the English translation beside it."
+    },
+    {
+      "heading": "why should you <em>care</em>?",
+      "body": "Because poetry is meant to be felt, not just understood. If you’ve ever heard a ghazal and felt something stir in your chest, this is for you. Here, translation isn’t a substitute; it’s a bridge, carrying you closer to the emotions hidden in every verse."
+    }
+  ],
+  "redirects": {
+    "song.html": "ghazals.html",
+    "template.html": "ghazals.html",
+    "entry1.html": "index.html"
+  }
+}

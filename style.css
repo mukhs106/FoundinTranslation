@@ -1,27 +1,39 @@
-/* Found in Translation — shared styles
-   Palette roles
-   --ink      body text, titles
-   --ink-2    supporting text (intros, credit values on hover)
-   --ink-3    labels, numerals, metadata (>= 4.5:1 on white)
-   --maroon   translation text, the site title, interactive states
-   --wash     the shared highlight behind a linked couplet
-   --rule     hairlines */
+/* Found in Translation
+
+   Type
+   --serif     Instrument Serif: titles and English translation
+   --sans      Atkinson Hyperlegible Next: navigation, credits, controls, notes
+   --deva      Sumana: poetry and titles in Devanagari
+   --nastaliq  Noto Nastaliq Urdu: poetry and titles in Urdu script
+
+   Colour roles
+   --ink       text and titles
+   --ink-2     explanations and supporting text
+   --ink-3     labels, numerals, metadata (4.5:1 or better on white and on --wash)
+   --accent    one maroon, used for exactly three things:
+               the English translation, the site title, and interactive state
+               (hover, current page, selected option, focus ring)
+   --wash      background of a highlighted couplet or selected option
+   --rule      hairlines */
 
 :root {
   --paper: #ffffff;
   --ink: #161616;
-  --ink-2: #4a4a4a;
-  --ink-3: #6e6e6e;
-  --maroon: #850000;
-  --wash: #f8efef;
-  --rule: #e6e0e0;
+  --ink-2: #3f3f3f;
+  --ink-3: #636363;
+  --accent: #850000;
+  --wash: #f7eeee;
+  --rule: #e3dddd;
 
   --serif: "Instrument Serif", Georgia, serif;
-  --deva: "Sumana", "Instrument Serif", serif;
+  --sans: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif;
+  --deva: "Sumana", "Noto Serif Devanagari", serif;
+  --nastaliq: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
 
   --gutter: clamp(16px, 5vw, 64px);
-  --measure: 1080px;
+  --measure: 1120px;
   --ease: cubic-bezier(.2, .6, .2, 1);
+  --nav-h: 76px;
 }
 
 * {
@@ -31,241 +43,402 @@
 }
 
 html {
-  scroll-padding-top: 120px;
+  scroll-padding-block-start: calc(var(--nav-h) + 24px);
 }
 
 body {
-  font-family: var(--serif);
-  font-weight: 400;
+  font-family: var(--sans);
+  font-size: 19px;
+  line-height: 1.55;
   color: var(--ink);
   background: var(--paper);
-  padding-top: 96px;
+  padding-block-start: var(--nav-h);
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
 a {
   color: inherit;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+a:hover {
+  color: var(--accent);
 }
 
 :focus-visible {
-  outline: 1px solid var(--maroon);
-  outline-offset: 4px;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-.visually-hidden {
+.skip {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+  inset-inline-start: var(--gutter);
+  inset-block-start: -100px;
+  z-index: 20;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 2px solid var(--accent);
+}
+
+.skip:focus {
+  inset-block-start: 12px;
+}
+
+/* ---------- Scripts ---------- */
+
+[lang="ur-Deva"], [lang="hi"] {
+  font-family: var(--deva);
+}
+
+[lang="ur"] {
+  font-family: var(--nastaliq);
+}
+
+bdi.native {
+  color: var(--ink-3);
+}
+
+/* Only the chosen script and translation are shown.
+   <html data-script data-trans> is set in the markup and updated by ghazal.js. */
+html[data-script="deva"] [data-s]:not([data-s="deva"]),
+html[data-script="arab"] [data-s]:not([data-s="arab"]),
+html[data-script="latn"] [data-s]:not([data-s="latn"]),
+html[data-trans="en"] [data-t]:not([data-t="en"]),
+html[data-trans="hi"] [data-t]:not([data-t="hi"]) {
+  display: none;
 }
 
 /* ---------- Bracketed navigation ---------- */
 
-header.site-nav {
+.site-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  inset-block-start: 0;
+  inset-inline: 0;
   z-index: 10;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 24px var(--gutter);
+  align-items: center;
+  gap: 12px;
+  min-block-size: var(--nav-h);
+  padding-inline: var(--gutter);
   background: var(--paper);
 }
 
-.site-nav a,
-.bracket {
-  font-family: var(--serif);
-  font-size: 26px;
-  line-height: 1.2;
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  font-size: 19px;
   text-decoration: none;
   color: var(--ink);
   transition: color .18s var(--ease);
 }
 
-.site-nav a:hover,
 .site-nav a[aria-current="page"],
-.bracket:hover {
-  color: var(--maroon);
+.site-nav a:hover {
+  color: var(--accent);
 }
 
 /* ---------- Page frame ---------- */
 
 main {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 0 var(--gutter) 64px;
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding: 0 var(--gutter) 72px;
 }
 
 .page-title {
+  font-family: var(--serif);
   font-size: clamp(64px, 11vw, 150px);
   font-weight: 400;
   line-height: .95;
-  letter-spacing: -.01em;
-  margin-bottom: 48px;
+  margin-block: 24px 48px;
 }
 
-/* ---------- Song: title block ---------- */
+.label {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-block-end: 20px;
+}
+
+.label-sm {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.section {
+  padding-block: 48px 8px;
+}
+
+.aside {
+  max-inline-size: 40em;
+  margin-block-end: 20px;
+  color: var(--ink-2);
+}
+
+/* ---------- Ghazal: title block ---------- */
 
 .work-head {
-  padding: 24px 0 40px;
-  border-bottom: 1px solid var(--rule);
+  padding-block: 24px 44px;
+  border-block-end: 1px solid var(--rule);
 }
 
 .work-num {
-  display: block;
-  font-size: 20px;
+  font-size: 16px;
   color: var(--ink-3);
-  margin-bottom: 8px;
+  margin-block-end: 6px;
 }
 
 .work-title {
-  font-size: clamp(52px, 8.5vw, 112px);
+  font-family: var(--serif);
+  font-size: clamp(54px, 9vw, 120px);
   font-weight: 400;
   line-height: .95;
   letter-spacing: -.01em;
+  text-wrap: balance;
 }
 
-.work-title-deva {
-  font-family: var(--deva);
-  font-size: clamp(24px, 3.2vw, 36px);
-  font-weight: 400;
+.work-title-script {
+  margin-block-start: 18px;
   color: var(--ink-2);
-  margin-top: 14px;
+}
+
+.work-title-script [lang="ur-Deva"] {
+  font-size: clamp(34px, 4.8vw, 56px);
+  line-height: 1.35;
+}
+
+.work-title-script [lang="ur"] {
+  display: inline-block;
+  font-size: clamp(30px, 4.2vw, 48px);
+  line-height: 2.1;
+}
+
+html[data-script="latn"] .work-title-script {
+  display: none;
 }
 
 .credits {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 20px 32px;
-  margin-top: 36px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px 36px;
+  margin-block-start: 36px;
 }
 
 .credits dt {
-  font-style: italic;
-  font-size: 17px;
+  font-size: 15px;
   color: var(--ink-3);
 }
 
 .credits dd {
-  font-size: 21px;
-  line-height: 1.3;
+  font-size: 19px;
+  line-height: 1.35;
 }
 
 .credits dd small {
   display: block;
-  font-size: 16px;
+  margin-block-start: 2px;
+  font-size: 15px;
   color: var(--ink-3);
 }
 
 .intro {
-  max-width: 38em;
-  margin-top: 36px;
-  font-size: 22px;
-  line-height: 1.45;
+  max-inline-size: 38em;
+  margin-block-start: 36px;
+  font-size: 19px;
+  line-height: 1.65;
   color: var(--ink-2);
 }
 
-/* ---------- Section labels ---------- */
+/* ---------- Choices: recordings, script, translation ---------- */
 
-.section {
-  padding: 40px 0 8px;
-}
-
-.section-label {
-  font-size: 18px;
-  font-weight: 400;
-  font-style: italic;
-  color: var(--ink-3);
-  margin-bottom: 20px;
-}
-
-.columns-label {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding: 0 20px 10px 64px;
-  font-style: italic;
-  font-size: 17px;
-  color: var(--ink-3);
-  border-bottom: 1px solid var(--rule);
-}
-
-.columns-label .tr-label {
-  color: var(--maroon);
-}
-
-/* ---------- Performance: rendition selector + verse map ---------- */
-
-.renditions {
+.choice {
   border: 0;
+  min-inline-size: 0;
 }
 
-.rendition-options {
+.choice legend {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-block-end: 10px;
+}
+
+.choice-options {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 20px;
+  gap: 8px;
 }
 
-.rendition-options label {
+.choice label {
   position: relative;
-  font-size: 21px;
-  color: var(--ink-2);
   cursor: pointer;
-  transition: color .18s var(--ease);
 }
 
-.rendition-options input {
+.choice input {
   position: absolute;
   opacity: 0;
-  width: 1px;
-  height: 1px;
+  inline-size: 1px;
+  block-size: 1px;
 }
 
-.rendition-options label:hover,
-.rendition-options input:checked + span {
-  color: var(--maroon);
+.choice label > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-block-size: 44px;
+  padding-inline: 16px;
+  border: 1px solid var(--rule);
+  border-radius: 22px;
+  font-size: 17px;
+  color: var(--ink);
+  transition: border-color .18s var(--ease), background-color .18s var(--ease), color .18s var(--ease);
 }
 
-.rendition-options input:focus-visible + span {
-  outline: 1px solid var(--maroon);
+.choice label:hover > span {
+  border-color: var(--accent);
+}
+
+.choice input:checked + span {
+  border-color: var(--accent);
+  background: var(--wash);
+  color: var(--accent);
+}
+
+.choice input:focus-visible + span {
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-.rendition-detail {
-  margin-top: 18px;
-  min-height: 3.2em;
-  font-size: 19px;
-  line-height: 1.45;
+.choice bdi[lang="ur"] {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin-block-end: 28px;
+}
+
+.controls:empty {
+  display: none;
+}
+
+/* ---------- Listen ---------- */
+
+.now {
+  margin-block-start: 24px;
+  max-inline-size: 42em;
+}
+
+.now .who {
+  font-family: var(--serif);
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+.now .ctx {
+  margin-block-start: 4px;
   color: var(--ink-2);
-  max-width: 44em;
 }
 
-.rendition-detail .who {
+.now .about {
+  margin-block-start: 8px;
+  font-size: 17px;
+  color: var(--ink-3);
+}
+
+.player {
+  margin-block-start: 20px;
+  max-inline-size: 640px;
+}
+
+.player:empty {
+  display: none;
+}
+
+.player iframe {
+  display: block;
+  inline-size: 100%;
+  border: 0;
+}
+
+.player .yt {
+  aspect-ratio: 16 / 9;
+}
+
+.player .bc {
+  block-size: 120px;
+}
+
+.player .provider {
+  margin-block-start: 8px;
+  font-size: 16px;
+  color: var(--ink-3);
+}
+
+.player .missing {
+  padding: 16px 18px;
+  border: 1px dashed var(--ink-3);
+  font-size: 17px;
+  color: var(--ink-2);
+}
+
+/* Native audio player, for recordings hosted with the site */
+.audio {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--rule);
+}
+
+.audio button {
+  inline-size: 48px;
+  block-size: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  background: var(--paper);
   color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
 }
 
-.rendition-detail a {
-  color: var(--maroon);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
-  white-space: nowrap;
+.audio button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
-.vmap-wrap {
-  margin-top: 18px;
+.audio input[type="range"] {
+  inline-size: 100%;
+  block-size: 24px;
+  accent-color: var(--accent);
+}
+
+.audio .time {
+  font-variant-numeric: tabular-nums;
+  font-size: 16px;
+  color: var(--ink-2);
+}
+
+.vmap-block {
+  margin-block-start: 32px;
 }
 
 .vmap-caption {
+  margin-block: 4px 12px;
   font-size: 16px;
-  font-style: italic;
   color: var(--ink-3);
-  margin-bottom: 8px;
 }
 
 .vmap {
@@ -276,16 +449,16 @@ main {
 }
 
 .vmap button {
-  font-family: var(--serif);
-  font-size: 17px;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 8px;
+  font: inherit;
+  font-size: 16px;
+  min-inline-size: 44px;
+  block-size: 44px;
+  padding-inline: 8px;
   border: 1px solid var(--ink-3);
   background: var(--paper);
   color: var(--ink);
   cursor: pointer;
-  transition: background-color .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+  transition: background-color .18s var(--ease), border-color .18s var(--ease);
 }
 
 .vmap button[data-state="unknown"] {
@@ -300,26 +473,25 @@ main {
 }
 
 .vmap button[data-state="added"] {
-  border-color: var(--maroon);
-  color: var(--maroon);
+  border: 2px solid var(--ink);
+  font-weight: 600;
 }
 
 .vmap button sup {
   font-size: 12px;
-  margin-left: 1px;
 }
 
 .vmap button.is-active,
 .vmap button:hover {
   background: var(--wash);
-  border-color: var(--maroon);
+  border-color: var(--accent);
 }
 
 .vmap-legend {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 18px;
-  margin-top: 10px;
+  gap: 4px 20px;
+  margin-block-start: 12px;
   font-size: 15px;
   color: var(--ink-3);
 }
@@ -327,18 +499,32 @@ main {
 .vmap-legend span::before {
   content: "";
   display: inline-block;
-  width: 11px;
-  height: 11px;
-  margin-right: 6px;
+  inline-size: 12px;
+  block-size: 12px;
+  margin-inline-end: 6px;
   border: 1px solid var(--ink-3);
   vertical-align: -1px;
 }
 
 .vmap-legend .lg-unknown::before { border-style: dashed; }
-.vmap-legend .lg-added::before { border-color: var(--maroon); }
-.vmap-legend .lg-omitted::before { border-color: var(--rule); }
+.vmap-legend .lg-added::before { border: 2px solid var(--ink); }
 
-/* ---------- Couplets ---------- */
+/* ---------- Poem and translation ---------- */
+
+.columns-label {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  padding-block-end: 10px;
+  padding-inline: 68px 20px;
+  font-size: 15px;
+  color: var(--ink-3);
+  border-block-end: 1px solid var(--rule);
+}
+
+.columns-label .tr-label {
+  color: var(--accent);
+}
 
 .couplets {
   list-style: none;
@@ -348,11 +534,12 @@ main {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 48px;
-  padding: 22px 20px 22px 64px;
-  border-bottom: 1px solid var(--rule);
+  gap: 10px 56px;
+  align-items: start;
+  padding-block: 26px;
+  padding-inline: 68px 20px;
+  border-block-end: 1px solid var(--rule);
   transition: background-color .22s var(--ease);
-  cursor: default;
 }
 
 .couplet:focus {
@@ -360,8 +547,8 @@ main {
 }
 
 .couplet:focus-visible {
-  outline: 1px solid var(--maroon);
-  outline-offset: -1px;
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
 }
 
 .couplet.is-active {
@@ -370,28 +557,37 @@ main {
 
 .c-num {
   position: absolute;
-  left: 20px;
-  top: 26px;
-  font-size: 17px;
+  inset-inline-start: 20px;
+  inset-block-start: 30px;
+  font-size: 16px;
   color: var(--ink-3);
-  transition: color .22s var(--ease);
 }
 
 .couplet.is-active .c-num {
-  color: var(--maroon);
+  color: var(--accent);
 }
 
-.src {
-  font-family: var(--deva);
-  font-size: 22px;
-  line-height: 1.75;
-}
-
-.src .l,
-.tr .l {
+.l {
   display: block;
-  padding-left: 1em;
+  padding-inline-start: 1em;
   text-indent: -1em;
+}
+
+/* Each script gets its own size and leading, set by eye in the browser. */
+.src [lang="ur-Deva"] {
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+.src [lang="ur"] {
+  font-size: 23px;
+  line-height: 2.35;
+}
+
+.src [lang="ur-Latn"] {
+  font-family: var(--sans);
+  font-size: 20px;
+  line-height: 1.75;
 }
 
 .src .refrain {
@@ -399,25 +595,20 @@ main {
 }
 
 .tr {
-  font-size: 25px;
-  line-height: 1.38;
-  color: var(--maroon);
-}
-
-.tr-missing {
-  color: var(--ink-3);
-  font-size: 18px;
-  font-style: italic;
-}
-
-.src-note {
-  font-size: 17px;
-  font-style: italic;
+  font-family: var(--serif);
+  font-size: 26px;
   line-height: 1.4;
+  color: var(--accent);
+}
+
+.tr-missing,
+.text-note {
+  font-family: var(--sans);
+  font-size: 17px;
   color: var(--ink-3);
 }
 
-/* Glossary: revealed with its couplet when scripting is on, always shown otherwise */
+/* Glossary: opens with its couplet when scripting is on, always shown otherwise */
 .gloss {
   grid-column: 1 / -1;
   display: grid;
@@ -429,26 +620,37 @@ main {
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 28px;
-  padding-top: 8px;
-  font-size: 17px;
-  line-height: 1.4;
+  gap: 6px 32px;
+  padding-block-start: 10px;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--ink-2);
 }
 
 .gloss dt {
   display: inline;
-  font-family: var(--deva);
   color: var(--ink);
 }
 
-.gloss dt i {
-  font-family: var(--serif);
+.gloss .term[lang="ur-Deva"] { font-size: 18px; }
+.gloss .term[lang="ur"] { font-size: 17px; line-height: 2; }
+.gloss .term[lang="ur-Latn"] { font-weight: 600; }
+
+.gloss .tl {
+  margin-inline-start: 8px;
   color: var(--ink-3);
+}
+
+html[data-script="latn"] .gloss .tl {
+  display: none;
 }
 
 .gloss dd {
   display: inline;
+}
+
+.gloss dd::before {
+  content: ": ";
 }
 
 .js .gloss {
@@ -461,32 +663,53 @@ main {
   opacity: 1;
 }
 
-.added-intro {
-  font-size: 19px;
-  line-height: 1.45;
-  color: var(--ink-2);
-  max-width: 40em;
-  margin-bottom: 16px;
+/* ---------- Notes and sources ---------- */
+
+.notes {
+  margin-block-start: 24px;
 }
 
-/* ---------- Sources ---------- */
-
-.sources {
-  margin-top: 24px;
+.notes-list {
+  display: grid;
+  gap: 22px;
+  max-inline-size: 52em;
   font-size: 17px;
-  line-height: 1.5;
-  color: var(--ink-3);
-  list-style: none;
-}
-
-.sources a {
   color: var(--ink-2);
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
 }
 
-.sources a:hover {
-  color: var(--maroon);
+.notes-list > div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 4px 28px;
+  padding-block-start: 18px;
+  border-block-start: 1px solid var(--rule);
+}
+
+.notes-list dt {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.notes-list ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.notes-list .who,
+.notes-list b {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.notes-list .ctx::after,
+.notes-list .what::after {
+  content: " · ";
+}
+
+.notes-list .what,
+.notes-list .missing {
+  color: var(--ink-3);
 }
 
 /* ---------- Previous / next ---------- */
@@ -495,44 +718,44 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 32px var(--gutter) 56px;
-  border-top: 1px solid var(--rule);
+  max-inline-size: var(--measure);
+  margin-inline: auto;
+  padding: 32px var(--gutter) 64px;
+  border-block-start: 1px solid var(--rule);
 }
 
 .pager a {
   display: block;
+  padding-block: 6px;
   text-decoration: none;
   color: var(--ink);
-  transition: color .18s var(--ease);
 }
 
 .pager .next {
   grid-column: 2;
-  text-align: right;
+  text-align: end;
 }
 
 .pager .dir {
   display: block;
-  font-size: 26px;
+  font-size: 17px;
+  color: var(--ink-2);
 }
 
 .pager .to {
   display: block;
-  margin-top: 4px;
-  font-size: 18px;
-  font-style: italic;
-  color: var(--ink-3);
-  transition: color .18s var(--ease);
+  margin-block-start: 2px;
+  font-family: var(--serif);
+  font-size: 28px;
+  line-height: 1.2;
 }
 
-.pager a:hover,
+.pager a:hover .dir,
 .pager a:hover .to {
-  color: var(--maroon);
+  color: var(--accent);
 }
 
-/* ---------- Index of ghazals / info ---------- */
+/* ---------- Ghazal list ---------- */
 
 .entries {
   list-style: none;
@@ -542,85 +765,132 @@ main {
   display: grid;
   grid-template-columns: 64px 1fr;
   gap: 0 24px;
-  padding: 28px 0;
-  border-top: 1px solid var(--rule);
+  padding-block: 32px;
+  border-block-start: 1px solid var(--rule);
 }
 
 .entry .n {
-  font-size: 22px;
+  font-size: 18px;
   color: var(--ink-3);
-  padding-top: 10px;
+  padding-block-start: 12px;
 }
 
 .entry h2 {
-  font-size: clamp(34px, 4.6vw, 52px);
+  font-family: var(--serif);
+  font-size: clamp(36px, 4.8vw, 56px);
   font-weight: 400;
   line-height: 1.05;
 }
 
 .entry h2 a {
   text-decoration: none;
-  transition: color .18s var(--ease);
-}
-
-.entry h2 a:hover {
-  color: var(--maroon);
 }
 
 .entry .meta {
-  margin-top: 6px;
-  font-size: 18px;
-  font-style: italic;
+  margin-block-start: 8px;
+  font-size: 16px;
   color: var(--ink-3);
 }
 
-.entry p {
-  margin-top: 14px;
-  max-width: 38em;
-  font-size: 21px;
-  line-height: 1.45;
+.entry .summary {
+  margin-block-start: 14px;
+  max-inline-size: 38em;
+  line-height: 1.65;
   color: var(--ink-2);
 }
 
+/* ---------- Info ---------- */
+
 .prose {
-  max-width: 40em;
+  max-inline-size: 38em;
 }
 
 .prose h2 {
+  font-family: var(--serif);
   font-size: clamp(34px, 4.6vw, 50px);
   font-weight: 400;
   line-height: 1.1;
-  margin-top: 48px;
+  margin-block-start: 56px;
 }
 
 .prose h2:first-child {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .prose p {
-  margin-top: 14px;
-  font-size: 23px;
-  line-height: 1.45;
+  margin-block-start: 14px;
+  font-size: 20px;
+  line-height: 1.7;
   color: var(--ink-2);
+}
+
+/* ---------- Home ---------- */
+
+.home {
+  min-block-size: calc(100vh - var(--nav-h) - 72px);
+  display: grid;
+  place-items: center;
+}
+
+#title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--serif);
+  font-size: clamp(56px, 9.5vw, 128px);
+  font-weight: 400;
+  line-height: .95;
+  text-align: center;
+  color: var(--accent);
+  margin-block-end: 8vh;
+}
+
+.drift {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.drift > div {
+  position: absolute;
+  opacity: 0;
+  color: var(--ink-3);
+  animation: drift 12s linear infinite;
+}
+
+.drift [lang="ur-Deva"] { font-size: 26px; }
+.drift [lang="ur"] { font-size: 23px; line-height: 2.2; }
+
+.drift > div:nth-child(1) { inset-inline-start: 8vw;  inset-block-start: 18vh; animation-delay: 0s; }
+.drift > div:nth-child(2) { inset-inline-start: 58vw; inset-block-start: 14vh; animation-delay: 4s; }
+.drift > div:nth-child(3) { inset-inline-start: 52vw; inset-block-start: 66vh; animation-delay: 8s; }
+.drift > div:nth-child(4) { inset-inline-start: 12vw; inset-block-start: 72vh; animation-delay: 6s; }
+.drift > div:nth-child(5) { inset-inline-start: 74vw; inset-block-start: 28vh; animation-delay: 2s; }
+.drift > div:nth-child(6) { inset-inline-start: 5vw;  inset-block-start: 58vh; animation-delay: 10s; }
+.drift > div:nth-child(7) { inset-inline-start: 36vw; inset-block-start: 84vh; animation-delay: 5s; }
+
+@keyframes drift {
+  0%   { opacity: 0; transform: scale(.9); }
+  20%  { opacity: .7; transform: scale(1); }
+  45%  { opacity: .7; }
+  70%  { opacity: 0; transform: scale(1.35); }
+  100% { opacity: 0; }
 }
 
 /* ---------- Small screens ---------- */
 
 @media (max-width: 760px) {
+  :root {
+    --nav-h: 60px;
+  }
+
   body {
-    padding-top: 72px;
-  }
-
-  html {
-    scroll-padding-top: 90px;
-  }
-
-  header.site-nav {
-    padding: 18px var(--gutter);
+    font-size: 18px;
   }
 
   .site-nav a {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .columns-label {
@@ -629,28 +899,26 @@ main {
 
   .couplet {
     grid-template-columns: 1fr;
-    padding: 20px 12px 20px 40px;
+    padding-block: 22px;
+    padding-inline: 42px 12px;
   }
 
   .c-num {
-    left: 12px;
-    top: 24px;
+    inset-inline-start: 12px;
+    inset-block-start: 28px;
   }
 
-  .src {
-    font-size: 19px;
-    line-height: 1.65;
-  }
+  .src [lang="ur-Deva"] { font-size: 20px; }
+  .src [lang="ur"] { font-size: 19px; line-height: 2.3; }
+  .src [lang="ur-Latn"] { font-size: 19px; }
 
   .tr {
-    margin-top: 6px;
-    font-size: 22px;
+    font-size: 23px;
+    padding-block-start: 4px;
   }
 
-  .intro,
-  .prose p,
-  .entry p {
-    font-size: 19px;
+  .notes-list > div {
+    grid-template-columns: 1fr;
   }
 
   .entry {
@@ -658,12 +926,19 @@ main {
   }
 
   .entry .n {
-    padding-top: 0;
+    padding-block-start: 0;
   }
 
-  .pager .dir {
+  .pager .to {
     font-size: 22px;
   }
+
+  .drift [lang="ur-Deva"] { font-size: 18px; }
+  .drift [lang="ur"] { font-size: 17px; }
+
+  .drift > div:nth-child(2) { inset-inline-start: 40vw; inset-block-start: 10vh; }
+  .drift > div:nth-child(5) { inset-inline-start: 56vw; inset-block-start: 26vh; }
+  .drift > div:nth-child(6) { inset-block-start: 62vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -671,6 +946,10 @@ main {
   *::before,
   *::after {
     transition-duration: 0s !important;
-    animation-duration: 0s !important;
+  }
+
+  .drift > div {
+    animation: none;
+    opacity: .35;
   }
 }
