@@ -230,68 +230,44 @@
   ],
   "renditions": [
     {
-      "id": "source",
-      "label": "The poem",
-      "about": "Ahmad Faraz’s six couplets as published on Rekhta. Rekhta notes that the ghazal also circulates with verses that are not in the published text.",
-      "map": {
-        "core": "source"
-      }
-    },
-    {
       "id": "mehdi-hassan",
       "label": "Mehdi Hassan",
       "performer": "Mehdi Hassan",
-      "context": "Live recording, archival upload listed on Rekhta",
-      "about": "He is documented as always singing two added couplets, shown below the poem. Which of Faraz’s couplets he sings here, and in what order, is not documented.",
+      "context": "live recording, archival upload listed on Rekhta",
+      "about": "He is documented as always singing two couplets that are not in Faraz’s text. They appear below the poem, under “Sung, not written”.",
       "player": {
         "type": "youtube",
         "id": "p8jP7EtrcwI"
-      },
-      "map": {
-        "core": "unknown",
-        "added": [
-          "a01",
-          "a02"
-        ]
       }
     },
     {
       "id": "farida-khanum",
       "label": "Farida Khanum",
       "performer": "Farida Khanum",
-      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "context": "from the audio archives of Lutfullah Khan, listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "GsJColGDQ64"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
       "id": "habib-wali-mohammad",
       "label": "Habib Wali Mohammad",
       "performer": "Habib Wali Mohammad",
-      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "context": "from the audio archives of Lutfullah Khan, listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "SfPQbsBhVZ0"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
       "id": "runa-laila",
       "label": "Runa Laila",
       "performer": "Runa Laila",
-      "context": "Upload listed on Rekhta",
+      "context": "upload listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "lUtUqD-9Yf4"
-      },
-      "map": {
-        "core": "unknown"
       }
     }
   ],
@@ -348,5 +324,6 @@
   "listing": {
     "meta": "Ahmad Faraz · popularised by Mehdi Hassan · two couplets added in performance",
     "summary": "“Ranjish Hi Sahi” is a deeply emotional Urdu ghazal written by Ahmad Faraz and made famous by Mehdi Hassan. The song captures the anguish of unrequited love and longing, where the singer pleads for their beloved to return, even if only to hurt them again."
-  }
+  },
+  "textNote": "Ahmad Faraz’s six couplets as published on Rekhta, which notes that the ghazal also circulates with verses outside the published text."
 }

@@ -17,7 +17,7 @@ SITE = json.loads((CONTENT / "site.json").read_text())
 GHAZALS = [json.loads((CONTENT / f"{slug}.json").read_text()) for slug in SITE["order"]]
 
 FONTS = {
-    "base": "family=Atkinson+Hyperlegible+Next:wght@400;600&family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700",
+    "base": "family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700",
     "urdu": "&family=Noto+Nastaliq+Urdu:wght@400;600",
 }
 
@@ -38,7 +38,7 @@ NAV = [("ghazals.html", "ghazals"), ("index.html", "found in translation"), ("in
 e = html.escape
 
 
-def head(title, description, urdu=False, html_attrs=""):
+def head(title, description, urdu=False, html_attrs="", comment=""):
     fonts = FONTS["base"] + (FONTS["urdu"] if urdu else "")
     return f"""<!DOCTYPE html>
 <html lang="en"{html_attrs}>
@@ -51,7 +51,7 @@ def head(title, description, urdu=False, html_attrs=""):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?{fonts}&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">{comment}
 </head>"""
 
 
@@ -137,22 +137,25 @@ def script_option_label(s):
     return f'{sc["name"]}{native}'
 
 
+def selectable(r):
+    """A rendition belongs in the recording selector only if it can be played or opened."""
+    return bool(r.get("player") or r.get("link"))
+
+
 def recordings_list(renditions):
     rows = []
     for r in renditions:
-        if r["id"] == "source":
-            continue
         p = r.get("player") or {}
         if p.get("type") == "youtube":
-            link = f'<a href="https://www.youtube.com/watch?v={p["id"]}">YouTube</a>'
+            link = f'<a href="https://www.youtube.com/watch?v={p["id"]}">Listen on YouTube</a>'
         elif p.get("type") == "bandcamp":
-            link = f'<a href="{p["href"]}">Bandcamp</a>'
+            link = f'<a href="{p["href"]}">Listen on Bandcamp</a>'
         elif p.get("type") == "audio":
             link = f'<a href="{p["src"]}">Audio file</a>'
         else:
-            link = '<span class="missing">Recording not yet available</span>'
-        extra = f' · <a href="{r["link"]["href"]}">{r["link"]["label"]}</a>' if r.get("link") else ""
-        rows.append(f'<li><span class="who">{r["performer"]}</span> <span class="ctx">{r["context"]}</span> {link}{extra}</li>')
+            link = f'<span class="missing">{r.get("missing", "No verified recording link yet.")}</span>'
+        extra = f', <a href="{r["link"]["href"]}">{r["link"]["label"]}</a>' if r.get("link") else ""
+        rows.append(f'<li>{r["performer"]}, {r["context"]}. {link}{extra}</li>')
     return "\n          ".join(rows)
 
 
@@ -160,18 +163,17 @@ def ghazal_page(i, g):
     scripts = [s for s in SCRIPTS if s in g["scripts"]]
     translations = [t for t in TRANSLATIONS if t in g["translations"]]
     unit = g.get("unit", "couplet")
-    urdu = "arab" in scripts
     title_latn = g["title"]["latn"]
 
     script_titles = "".join(
         script_span(s, g["title"][s]) for s in scripts if s != "latn" and s in g["title"]
     )
     credits = "\n".join(
-        f'        <div><dt>{c["label"]}</dt><dd>{c["value"]}{"<small>" + c["note"] + "</small>" if c.get("note") else ""}</dd></div>'
+        f'        <div><dt>{c["label"]}</dt><dd>{c["value"]}{" <span class=note>" + c["note"] + "</span>" if c.get("note") else ""}</dd></div>'
         for c in g["credits"]
     )
-    controls = options("script", "Read the poem in", [(s, script_option_label(s)) for s in scripts], scripts[0]) + \
-        options("translation", "Beside it", [(t, TRANSLATIONS[t]["name"]) for t in translations], translations[0])
+    controls = options("script", "Script", [(s, script_option_label(s)) for s in scripts], scripts[0]) + \
+        options("translation", "Translation", [(t, TRANSLATIONS[t]["name"]) for t in translations], translations[0])
     poem_word = "Lyric" if unit == "stanza" else "Poem"
     col_src = "".join(f'<span data-s="{s}">{poem_word}, in {SCRIPTS[s]["name"] if s != "arab" else "Urdu script"}</span>' for s in scripts)
     col_tr = "".join(f'<span data-t="{t}">{TRANSLATIONS[t]["name"]} {g["translations"][t]["kind"]}</span>' for t in translations)
@@ -181,7 +183,7 @@ def ghazal_page(i, g):
     if g.get("added"):
         added = f"""
     <section class="section" aria-labelledby="added-h">
-      <h2 class="label" id="added-h">Sung, not written</h2>
+      <h2 class="section-title" id="added-h">Sung, not written</h2>
       <p class="aside">{g['addedIntro']}</p>
       <ol class="couplets added">
 {chr(10).join(couplet(c, scripts, translations, unit) for c in g['added'])}
@@ -189,60 +191,59 @@ def ghazal_page(i, g):
     </section>"""
 
     text_sources = "; ".join(
-        f'{SCRIPTS[s]["name"] if s != "arab" else "Urdu script"}: {g["scripts"][s]["source"]}' for s in scripts
+        f'{SCRIPTS[s]["name"] if s != "arab" else "Urdu script"}, {g["scripts"][s]["source"]}' for s in scripts
     )
     refs = "\n          ".join(
-        f'<li><span class="what">{s["label"]}</span> <a href="{s["href"]}">{s["title"]}</a></li>' for s in g["sources"]
+        f'<li>{s["label"]}: <a href="{s["href"]}">{s["title"]}</a></li>' for s in g["sources"]
     )
-    perf = json.dumps({"unit": unit, "renditions": g["renditions"]}, ensure_ascii=False)
+    playable = [r for r in g["renditions"] if selectable(r)]
+    perf = json.dumps(playable, ensure_ascii=False)
     flags = "\n".join(f"    - {f}" for f in g.get("flags", []))
+    comment = f"""
+  <!--
+    Generated from content/{g['slug']}.json by tools/build.py. Edit the JSON, then rebuild.
+    Internal notes (not displayed):
+{flags}
+  -->"""
 
     prev = (f'{GHAZALS[i-1]["slug"]}.html', GHAZALS[i-1]["title"]["latn"]) if i > 0 else ("ghazals.html", "all ghazals")
     nxt = (f'{GHAZALS[i+1]["slug"]}.html', GHAZALS[i+1]["title"]["latn"]) if i + 1 < len(GHAZALS) else ("ghazals.html", "all ghazals")
-    has_tl = "latn" in scripts
-    reading_key = [
-        "<b>Translation</b>: an English rendering of each couplet, set beside the couplet it carries, by meaning rather than by line.",
-    ]
-    if has_tl:
-        reading_key.append("<b>Transliteration</b>: the same Urdu written in Roman letters. It is a way to read the original, not a translation.")
-    reading_key.append("<b>Glossary notes</b>: short explanations of single words, shown when a couplet is selected. They are not translations.")
+    reading = "The English translation sits beside the " + unit + " it carries, matched by meaning rather than line by line."
+    if "latn" in scripts:
+        reading += " The Roman transliteration is the same Urdu in Latin letters, a way to read the original rather than a translation."
+    reading += " Glossary notes, shown when you select a " + unit + ", explain single words; they are not translations."
 
-    return f"""{head(f"{title_latn} | Found in Translation", re.sub('<[^>]+>', '', g['listing']['summary']), urdu, f' data-script="{scripts[0]}" data-trans="{translations[0]}"')}
-<!--
-  Generated from content/{g['slug']}.json by tools/build.py. Edit the JSON, then rebuild.
-  Internal notes (not displayed):
-{flags}
--->
+    return f"""{head(f"{title_latn} | Found in Translation", re.sub('<[^>]+>', '', g['listing']['summary']), "arab" in scripts, f' data-script="{scripts[0]}" data-trans="{translations[0]}"', comment)}
 {nav(None)}
 
-  <main id="main">
+  <main id="main" class="work">
     <header class="work-head">
-      <p class="work-num">Ghazal {g['num']} of {len(GHAZALS)}</p>
-      <h1 class="work-title">{title_latn}</h1>
-      <p class="work-title-script">{script_titles}</p>
+      <p class="work-index" aria-label="Ghazal {g['num']} of {len(GHAZALS)}">{g['num']:02d}</p>
+      <div class="work-titles">
+        <h1 class="work-title">{title_latn}</h1>
+        <p class="work-title-script">{script_titles}</p>
+      </div>
       <dl class="credits">
 {credits}
       </dl>
-      <div class="intro"><p>{g['intro']}</p></div>
+      <p class="intro">{g['intro']}</p>
     </header>
 
     <section class="section listen" aria-labelledby="listen-h">
-      <h2 class="label" id="listen-h">Listen</h2>
-      <fieldset class="choice renditions"><legend>Choose a recording</legend><div class="choice-options"></div></fieldset>
-      <div class="now" aria-live="polite"></div>
-      <div class="player"></div>
-      <div class="vmap-block">
-        <h3 class="label-sm" id="vmap-h">Verses</h3>
-        <p class="vmap-caption"></p>
-        <ol class="vmap" aria-labelledby="vmap-h"></ol>
-        <p class="vmap-legend"><span class="lg-source">in the text</span><span class="lg-unknown">not documented for this recording</span><span class="lg-added">added in performance</span></p>
+      <h2 class="section-title" id="listen-h">Listen</h2>
+      <fieldset class="choice renditions"><legend class="visually-hidden">Recording</legend><div class="choice-options">{"".join(f'<label><input type="radio" name="rendition" value="{r["id"]}"{" checked" if n == 0 else ""}><span>{r["label"]}</span></label>' for n, r in enumerate(playable))}</div></fieldset>
+      <div class="recording">
+        <div class="now" aria-live="polite"></div>
+        <div class="player"></div>
       </div>
       <script type="application/json" id="performance-data">{perf}</script>
     </section>
 
     <section class="section read" aria-labelledby="read-h">
-      <h2 class="label" id="read-h">{poem_word} and translation</h2>
-      <div class="controls">{controls}</div>
+      <div class="read-head">
+        <h2 class="section-title" id="read-h">{poem_word} and translation</h2>
+        <div class="controls">{controls}</div>
+      </div>
       <div class="columns-label" aria-hidden="true"><span>{col_src}</span><span class="tr-label">{col_tr}</span></div>
       <ol class="couplets">
 {core}
@@ -250,18 +251,20 @@ def ghazal_page(i, g):
     </section>
 {added}
 
-    <section class="section notes" aria-labelledby="notes-h">
-      <h2 class="label" id="notes-h">Notes and sources</h2>
-      <dl class="notes-list">
-        <div><dt>Text</dt><dd>{text_sources}. {"Stanzas follow the order of the lyric as transcribed here" if unit == "stanza" else "Couplets follow the poet’s order"}.</dd></div>
-        <div><dt>Reading this page</dt><dd><ul>{"".join(f"<li>{k}</li>" for k in reading_key)}</ul></dd></div>
-        <div><dt>Recordings</dt><dd><ul class="links">
+    <section class="section endnotes" aria-labelledby="notes-h">
+      <h2 class="section-title" id="notes-h">Notes and sources</h2>
+      <p><b>Text.</b> {g['textNote']} Texts used here: {text_sources}.</p>
+      <p><b>Reading.</b> {reading}</p>
+      <div><b>Recordings.</b>
+        <ul>
           {recordings_list(g['renditions'])}
-        </ul></dd></div>
-        <div><dt>References</dt><dd><ul class="links">
+        </ul>
+      </div>
+      <div><b>References.</b>
+        <ul>
           {refs}
-        </ul></dd></div>
-      </dl>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -276,7 +279,7 @@ def ghazal_page(i, g):
 def list_page():
     entries = "\n".join(
         f"""      <li class="entry">
-        <span class="n">{g['num']}.</span>
+        <span class="n">{g['num']:02d}</span>
         <div>
           <h2><a href="{g['slug']}.html">{g['title']['latn']}</a></h2>
           <p class="meta">{g['listing']['meta']}</p>
@@ -304,7 +307,7 @@ def list_page():
 
 def info_page():
     sections = "\n".join(
-        f"      <h2>{s['heading']}</h2>\n      <p>{s['body']}</p>" for s in SITE["info"]
+        f"      <section>\n        <h2>{s['heading']}</h2>\n        <p>{s['body']}</p>\n      </section>" for s in SITE["info"]
     )
     return f"""{head("Info | Found in Translation", "What a ghazal is, and how this site reads, translates and listens to them.")}
 {nav("info.html")}

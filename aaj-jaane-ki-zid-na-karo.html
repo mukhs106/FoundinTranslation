@@ -8,18 +8,19 @@
   <script>document.documentElement.classList.add("js");</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-</head>
-<!--
-  Generated from content/aaj-jaane-ki-zid-na-karo.json by tools/build.py. Edit the JSON, then rebuild.
-  Internal notes (not displayed):
+  <!--
+    Generated from content/aaj-jaane-ki-zid-na-karo.json by tools/build.py. Edit the JSON, then rebuild.
+    Internal notes (not displayed):
     - The Devanagari text below is the page's existing transcription (refrain repetitions included). Rekhta's geet text has more stanzas (roughly nine) and has not been checked line by line against this transcription; do not add the missing stanzas until checked.
     - Unverified which rendition the transcription follows.
     - Spelling corrected to match Rekhta: पहलु -> पहलू, बैराज -> मे'राज.
     - No verified recording link found for Habib Wali Mohammad's film version or Farida Khanum's 1993 PTV recording.
     - Line-level correspondence not verified; highlighting stays at stanza level.
--->
+    - Habib Wali Mohammad's film recording is listed in the notes only; it has no verified link, so it is not in the recording selector.
+  -->
+</head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <header class="site-nav">
@@ -28,37 +29,37 @@
     <a href="info.html">[info]</a>
   </header>
 
-  <main id="main">
+  <main id="main" class="work">
     <header class="work-head">
-      <p class="work-num">Ghazal 2 of 4</p>
-      <h1 class="work-title">Aaj Jaane Ki Zid Na Karo</h1>
-      <p class="work-title-script"><span class="sv" data-s="deva" lang="ur-Deva" dir="ltr">आज जाने की ज़िद न करो</span></p>
+      <p class="work-index" aria-label="Ghazal 2 of 4">02</p>
+      <div class="work-titles">
+        <h1 class="work-title">Aaj Jaane Ki Zid Na Karo</h1>
+        <p class="work-title-script"><span class="sv" data-s="deva" lang="ur-Deva" dir="ltr">आज जाने की ज़िद न करो</span></p>
+      </div>
       <dl class="credits">
-        <div><dt>Lyricist</dt><dd>Fayyaz Hashmi<small>1920–2011</small></dd></div>
-        <div><dt>Form</dt><dd>Geet<small>often sung and listed as a ghazal</small></dd></div>
-        <div><dt>Music</dt><dd>Sohail Rana<small>Raag Yaman Kalyan</small></dd></div>
-        <div><dt>First sung by</dt><dd>Habib Wali Mohammad<small>film <i>Badal Aur Bijli</i>, 1973</small></dd></div>
+        <div><dt>Lyricist</dt><dd>Fayyaz Hashmi <span class=note>1920–2011</span></dd></div>
+        <div><dt>Form</dt><dd>Geet <span class=note>often sung and listed as a ghazal</span></dd></div>
+        <div><dt>Music</dt><dd>Sohail Rana <span class=note>Raag Yaman Kalyan</span></dd></div>
+        <div><dt>First sung by</dt><dd>Habib Wali Mohammad <span class=note>film <i>Badal Aur Bijli</i>, 1973</span></dd></div>
       </dl>
-      <div class="intro"><p>“Aaj Jaane Ki Zid Na Karo” is a timeless geet written by Pakistani poet Fayyaz Hashmi and composed by Sohail Rana. Originally popularized by classical vocalist Habib Wali Mohammad in the 1973 Pakistani film <i>Badal Aur Bijli</i>, the song later gained legendary status through ghazal singer Farida Khanum’s rendition in 1993. Sung in Raag Yaman Kalyan, this deeply romantic and melancholic piece expresses a lover’s desperate plea for their beloved to stay a little longer, cherishing fleeting moments of togetherness. Unlike the other pages here, it is a geet: its refrain returns, so repetition is part of the text rather than only of the performance.</p></div>
+      <p class="intro">“Aaj Jaane Ki Zid Na Karo” is a timeless geet written by Pakistani poet Fayyaz Hashmi and composed by Sohail Rana. Originally popularized by classical vocalist Habib Wali Mohammad in the 1973 Pakistani film <i>Badal Aur Bijli</i>, the song later gained legendary status through ghazal singer Farida Khanum’s rendition in 1993. Sung in Raag Yaman Kalyan, this deeply romantic and melancholic piece expresses a lover’s desperate plea for their beloved to stay a little longer, cherishing fleeting moments of togetherness. Unlike the other pages here, it is a geet: its refrain returns, so repetition is part of the text rather than only of the performance.</p>
     </header>
 
     <section class="section listen" aria-labelledby="listen-h">
-      <h2 class="label" id="listen-h">Listen</h2>
-      <fieldset class="choice renditions"><legend>Choose a recording</legend><div class="choice-options"></div></fieldset>
-      <div class="now" aria-live="polite"></div>
-      <div class="player"></div>
-      <div class="vmap-block">
-        <h3 class="label-sm" id="vmap-h">Verses</h3>
-        <p class="vmap-caption"></p>
-        <ol class="vmap" aria-labelledby="vmap-h"></ol>
-        <p class="vmap-legend"><span class="lg-source">in the text</span><span class="lg-unknown">not documented for this recording</span><span class="lg-added">added in performance</span></p>
+      <h2 class="section-title" id="listen-h">Listen</h2>
+      <fieldset class="choice renditions"><legend class="visually-hidden">Recording</legend><div class="choice-options"><label><input type="radio" name="rendition" value="farida-khanum" checked><span>Farida Khanum, 2015</span></label><label><input type="radio" name="rendition" value="asha-bhosle"><span>Asha Bhosle</span></label></div></fieldset>
+      <div class="recording">
+        <div class="now" aria-live="polite"></div>
+        <div class="player"></div>
       </div>
-      <script type="application/json" id="performance-data">{"unit": "stanza", "renditions": [{"id": "source", "label": "The lyric", "about": "The lyric as transcribed on this page, in its own order. The refrain, shown lighter, returns within the text itself.", "map": {"core": "source"}}, {"id": "habib-wali-mohammad", "label": "Habib Wali Mohammad, 1973", "performer": "Habib Wali Mohammad", "context": "Playback for the film Badal Aur Bijli (1973), music by Sohail Rana", "about": "The first recorded version.", "missing": "No verified recording of the film version has been found yet.", "map": {"core": "unknown"}}, {"id": "farida-khanum", "label": "Farida Khanum, 2015", "performer": "Farida Khanum", "context": "Coke Studio Pakistan, Season 8, Episode 7 (2015)", "about": "A late performance of the song she made famous with her 1993 recording for Pakistan Television.", "player": {"type": "youtube", "id": "KDJL2FyRDeA"}, "link": {"href": "https://www.youtube.com/watch?v=jrubkqwQbso", "label": "Official audio on YouTube (opens YouTube; it cannot be embedded)"}, "map": {"core": "unknown"}}, {"id": "asha-bhosle", "label": "Asha Bhosle", "performer": "Asha Bhosle", "context": "Live at the Paramount, Oakland (2011). Audience upload listed on Rekhta", "player": {"type": "youtube", "id": "ZOImbmdKy8A"}, "map": {"core": "unknown"}}]}</script>
+      <script type="application/json" id="performance-data">[{"id": "farida-khanum", "label": "Farida Khanum, 2015", "performer": "Farida Khanum", "context": "Coke Studio Pakistan, Season 8, Episode 7 (2015)", "about": "A late performance of the song she made famous with her 1993 recording for Pakistan Television.", "player": {"type": "youtube", "id": "KDJL2FyRDeA"}, "link": {"href": "https://www.youtube.com/watch?v=jrubkqwQbso", "label": "Official audio, on YouTube"}}, {"id": "asha-bhosle", "label": "Asha Bhosle", "performer": "Asha Bhosle", "context": "live at the Paramount, Oakland (2011). Audience upload listed on Rekhta", "player": {"type": "youtube", "id": "ZOImbmdKy8A"}}]</script>
     </section>
 
     <section class="section read" aria-labelledby="read-h">
-      <h2 class="label" id="read-h">Lyric and translation</h2>
-      <div class="controls"></div>
+      <div class="read-head">
+        <h2 class="section-title" id="read-h">Lyric and translation</h2>
+        <div class="controls"></div>
+      </div>
       <div class="columns-label" aria-hidden="true"><span><span data-s="deva">Lyric, in Devanagari</span></span><span class="tr-label"><span data-t="en">English translation</span></span></div>
       <ol class="couplets">
       <li class="couplet" id="s01" aria-label="stanza 1">
@@ -133,22 +134,24 @@
     </section>
 
 
-    <section class="section notes" aria-labelledby="notes-h">
-      <h2 class="label" id="notes-h">Notes and sources</h2>
-      <dl class="notes-list">
-        <div><dt>Text</dt><dd>Devanagari: transcription by Found in Translation. Stanzas follow the order of the lyric as transcribed here.</dd></div>
-        <div><dt>Reading this page</dt><dd><ul><li><b>Translation</b>: an English rendering of each couplet, set beside the couplet it carries, by meaning rather than by line.</li><li><b>Glossary notes</b>: short explanations of single words, shown when a couplet is selected. They are not translations.</li></ul></dd></div>
-        <div><dt>Recordings</dt><dd><ul class="links">
-          <li><span class="who">Habib Wali Mohammad</span> <span class="ctx">Playback for the film Badal Aur Bijli (1973), music by Sohail Rana</span> <span class="missing">Recording not yet available</span></li>
-          <li><span class="who">Farida Khanum</span> <span class="ctx">Coke Studio Pakistan, Season 8, Episode 7 (2015)</span> <a href="https://www.youtube.com/watch?v=KDJL2FyRDeA">YouTube</a> · <a href="https://www.youtube.com/watch?v=jrubkqwQbso">Official audio on YouTube (opens YouTube; it cannot be embedded)</a></li>
-          <li><span class="who">Asha Bhosle</span> <span class="ctx">Live at the Paramount, Oakland (2011). Audience upload listed on Rekhta</span> <a href="https://www.youtube.com/watch?v=ZOImbmdKy8A">YouTube</a></li>
-        </ul></dd></div>
-        <div><dt>References</dt><dd><ul class="links">
-          <li><span class="what">Text</span> <a href="https://www.rekhta.org/geet/fayyaz-hashmi-geet">Rekhta, Fayyaz Hashmi, geet</a></li>
-          <li><span class="what">Credits, raag and renditions</span> <a href="https://en.wikipedia.org/wiki/Aaj_Jaane_Ki_Zid_Na_Karo">Wikipedia, Aaj Jaane Ki Zid Na Karo</a></li>
-          <li><span class="what">Coke Studio performance</span> <a href="https://arynews.tv/finally-a-reason-to-watch-coke-studio-farida-khanum-singing-aaj-jane-ki-zidd-na-karo">ARY News, October 2015</a></li>
-        </ul></dd></div>
-      </dl>
+    <section class="section endnotes" aria-labelledby="notes-h">
+      <h2 class="section-title" id="notes-h">Notes and sources</h2>
+      <p><b>Text.</b> The lyric as transcribed here, refrain included; refrain lines are set lighter. Rekhta’s text of the geet has further stanzas that are not transcribed on this page. Texts used here: Devanagari, transcription by Found in Translation.</p>
+      <p><b>Reading.</b> The English translation sits beside the stanza it carries, matched by meaning rather than line by line. Glossary notes, shown when you select a stanza, explain single words; they are not translations.</p>
+      <div><b>Recordings.</b>
+        <ul>
+          <li>Habib Wali Mohammad, playback for the film Badal Aur Bijli (1973), music by Sohail Rana. <span class="missing">No verified recording of the film version has been found yet.</span></li>
+          <li>Farida Khanum, Coke Studio Pakistan, Season 8, Episode 7 (2015). <a href="https://www.youtube.com/watch?v=KDJL2FyRDeA">Listen on YouTube</a>, <a href="https://www.youtube.com/watch?v=jrubkqwQbso">Official audio, on YouTube</a></li>
+          <li>Asha Bhosle, live at the Paramount, Oakland (2011). Audience upload listed on Rekhta. <a href="https://www.youtube.com/watch?v=ZOImbmdKy8A">Listen on YouTube</a></li>
+        </ul>
+      </div>
+      <div><b>References.</b>
+        <ul>
+          <li>Text: <a href="https://www.rekhta.org/geet/fayyaz-hashmi-geet">Rekhta, Fayyaz Hashmi, geet</a></li>
+          <li>Credits, raag and renditions: <a href="https://en.wikipedia.org/wiki/Aaj_Jaane_Ki_Zid_Na_Karo">Wikipedia, Aaj Jaane Ki Zid Na Karo</a></li>
+          <li>Coke Studio performance: <a href="https://arynews.tv/finally-a-reason-to-watch-coke-studio-farida-khanum-singing-aaj-jane-ki-zidd-na-karo">ARY News, October 2015</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 

@@ -250,23 +250,12 @@
   ],
   "renditions": [
     {
-      "id": "source",
-      "label": "The lyric",
-      "about": "The lyric as transcribed on this page, in its own order. The refrain, shown lighter, returns within the text itself.",
-      "map": {
-        "core": "source"
-      }
-    },
-    {
       "id": "habib-wali-mohammad",
       "label": "Habib Wali Mohammad, 1973",
       "performer": "Habib Wali Mohammad",
-      "context": "Playback for the film Badal Aur Bijli (1973), music by Sohail Rana",
+      "context": "playback for the film Badal Aur Bijli (1973), music by Sohail Rana",
       "about": "The first recorded version.",
-      "missing": "No verified recording of the film version has been found yet.",
-      "map": {
-        "core": "unknown"
-      }
+      "missing": "No verified recording of the film version has been found yet."
     },
     {
       "id": "farida-khanum",
@@ -280,23 +269,17 @@
       },
       "link": {
         "href": "https://www.youtube.com/watch?v=jrubkqwQbso",
-        "label": "Official audio on YouTube (opens YouTube; it cannot be embedded)"
-      },
-      "map": {
-        "core": "unknown"
+        "label": "Official audio, on YouTube"
       }
     },
     {
       "id": "asha-bhosle",
       "label": "Asha Bhosle",
       "performer": "Asha Bhosle",
-      "context": "Live at the Paramount, Oakland (2011). Audience upload listed on Rekhta",
+      "context": "live at the Paramount, Oakland (2011). Audience upload listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "ZOImbmdKy8A"
-      },
-      "map": {
-        "core": "unknown"
       }
     }
   ],
@@ -322,10 +305,12 @@
     "Unverified which rendition the transcription follows.",
     "Spelling corrected to match Rekhta: पहलु -> पहलू, बैराज -> मे'राज.",
     "No verified recording link found for Habib Wali Mohammad's film version or Farida Khanum's 1993 PTV recording.",
-    "Line-level correspondence not verified; highlighting stays at stanza level."
+    "Line-level correspondence not verified; highlighting stays at stanza level.",
+    "Habib Wali Mohammad's film recording is listed in the notes only; it has no verified link, so it is not in the recording selector."
   ],
   "listing": {
     "meta": "Fayyaz Hashmi · music by Sohail Rana · a geet, with its own refrain",
     "summary": "A timeless geet first sung by Habib Wali Mohammad in the 1973 film <i>Badal Aur Bijli</i>, and later made legendary by Farida Khanum: a lover’s plea for the beloved to stay a little longer."
-  }
+  },
+  "textNote": "The lyric as transcribed here, refrain included; refrain lines are set lighter. Rekhta’s text of the geet has further stanzas that are not transcribed on this page."
 }

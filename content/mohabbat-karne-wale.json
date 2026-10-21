@@ -298,38 +298,24 @@
   ],
   "renditions": [
     {
-      "id": "source",
-      "label": "The poem",
-      "about": "Hafeez Hoshiarpuri’s nine couplets as published on Rekhta.",
-      "map": {
-        "core": "source"
-      }
-    },
-    {
       "id": "mehdi-hassan",
       "label": "Mehdi Hassan",
       "performer": "Mehdi Hassan",
-      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "context": "from the audio archives of Lutfullah Khan, listed on Rekhta",
       "about": "He first popularised the ghazal.",
       "player": {
         "type": "youtube",
         "id": "pgO6l1deNzU"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
       "id": "iqbal-bano",
       "label": "Iqbal Bano",
       "performer": "Iqbal Bano",
-      "context": "Archival upload listed on Rekhta",
+      "context": "archival upload listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "81tUtM_OglY"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
@@ -337,14 +323,11 @@
       "label": "Arooj Aftab, 2021",
       "performer": "Arooj Aftab",
       "context": "“Mohabbat”, from Vulture Prince (New Amsterdam, 2021). Official audio on the artist’s Bandcamp",
-      "about": "Grammy, Best Global Music Performance. She sings three of the nine couplets; which three is not yet documented here.",
+      "about": "Grammy, Best Global Music Performance. She sings three of the nine couplets.",
       "player": {
         "type": "bandcamp",
         "track": "332579873",
         "href": "https://aroojaftab.bandcamp.com/track/mohabbat"
-      },
-      "map": {
-        "core": "unknown"
       }
     }
   ],
@@ -368,10 +351,12 @@
   "flags": [
     "Poet corrected from 'Hafeez Jalandhari' to Hafeez Hoshiarpuri (Rekhta, Wikipedia).",
     "Arooj Aftab sings three couplets (Wikipedia); which three is not yet documented, so her map stays 'not documented'.",
-    "Translations of c03 and c07 loosen the source sense; author to review."
+    "Translations of c03 and c07 loosen the source sense; author to review.",
+    "Which three couplets Arooj Aftab sings is not yet documented."
   ],
   "listing": {
     "meta": "Hafeez Hoshiarpuri · from Mehdi Hassan to Arooj Aftab",
     "summary": "There will be no shortage of those who love you, but I will not be among them. A ghazal of separation whose sorrow, the poet suggests, outweighs the grief of the whole world."
-  }
+  },
+  "textNote": "Hafeez Hoshiarpuri’s nine couplets as published on Rekhta."
 }

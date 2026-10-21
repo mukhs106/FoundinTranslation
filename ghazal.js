@@ -28,57 +28,42 @@
 
   // ---- Linked highlighting ----
   const couplets = Array.from(document.querySelectorAll(".couplet[id]"));
-  if (!couplets.length) return;
-
-  const byId = new Map(couplets.map((el) => [el.id, el]));
-  const coreIds = couplets.filter((el) => !el.closest(".couplets.added")).map((el) => el.id);
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   let hoverId = null;
   let focusId = null;
   let pinnedId = null;
-  let mapButtons = [];
 
   function render() {
     const active = hoverId || focusId || pinnedId;
-    couplets.forEach((el) => el.classList.toggle("is-active", el.id === active));
-    mapButtons.forEach((b) => b.classList.toggle("is-active", b.dataset.target === active));
+    couplets.forEach((c) => c.classList.toggle("is-active", c.id === active));
   }
 
-  function hoverable(el, id) {
-    el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hoverId = id; render(); } });
-    el.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { hoverId = null; render(); } });
-  }
-
-  couplets.forEach((el) => {
-    el.tabIndex = 0;
-    hoverable(el, el.id);
-    el.addEventListener("focus", () => { focusId = el.id; render(); });
-    el.addEventListener("blur", () => { focusId = null; render(); });
-    el.addEventListener("click", () => {
-      if (pinnedId === el.id) {
+  couplets.forEach((c) => {
+    c.tabIndex = 0;
+    c.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hoverId = c.id; render(); } });
+    c.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") { hoverId = null; render(); } });
+    c.addEventListener("focus", () => { focusId = c.id; render(); });
+    c.addEventListener("blur", () => { focusId = null; render(); });
+    c.addEventListener("click", () => {
+      if (pinnedId === c.id) {
         pinnedId = null;
-        el.blur();
+        c.blur();
       } else {
-        pinnedId = el.id;
+        pinnedId = c.id;
       }
       render();
     });
   });
 
   const fromHash = decodeURIComponent(location.hash.slice(1));
-  if (byId.has(fromHash)) pinnedId = fromHash;
+  if (couplets.some((c) => c.id === fromHash)) { pinnedId = fromHash; render(); }
 
   // ---- Recordings ----
   const dataEl = document.getElementById("performance-data");
-  if (!dataEl) { render(); return; }
+  if (!dataEl) return;
 
-  const data = JSON.parse(dataEl.textContent);
-  const options = document.querySelector(".renditions .choice-options");
+  const renditions = JSON.parse(dataEl.textContent);
   const now = document.querySelector(".now");
   const player = document.querySelector(".player");
-  const vmap = document.querySelector(".vmap");
-  const caption = document.querySelector(".vmap-caption");
 
   function el(tag, attrs, text) {
     const node = document.createElement(tag);
@@ -120,13 +105,8 @@
   function mountPlayer(r) {
     player.replaceChildren();
     const p = r.player;
-    if (r.id === "source") return;
-    if (!p) {
-      player.append(el("p", { class: "missing" }, r.missing || "No playable recording is available for this rendition yet."));
-      return;
-    }
     const label = r.performer + ", " + r.label;
-    if (p.type === "youtube") {
+    if (p && p.type === "youtube") {
       player.append(el("iframe", {
         class: "yt",
         src: "https://www.youtube-nocookie.com/embed/" + p.id + "?rel=0",
@@ -134,92 +114,33 @@
         allow: "encrypted-media; picture-in-picture",
         allowfullscreen: "",
       }));
-      player.append(el("p", { class: "provider" }, "Plays in YouTube’s player."));
-    } else if (p.type === "bandcamp") {
+    } else if (p && p.type === "bandcamp") {
       player.append(el("iframe", {
         class: "bc",
         src: "https://bandcamp.com/EmbeddedPlayer/track=" + p.track + "/size=large/bgcol=ffffff/linkcol=850000/artwork=none/tracklist=false/transparent=true/",
         title: "Recording: " + label + " (Bandcamp player)",
         seamless: "",
       }));
-      player.append(el("p", { class: "provider" }, "Plays in Bandcamp’s audio player, from the artist’s own page."));
-    } else if (p.type === "audio") {
+    } else if (p && p.type === "audio") {
       player.append(audioPlayer(p.src, label));
     }
     if (r.link) {
-      const line = el("p", { class: "provider" });
+      const line = el("p", { class: "elsewhere" });
       line.append(el("a", { href: r.link.href, target: "_blank", rel: "noopener" }, r.link.label));
       player.append(line);
     }
   }
 
-  function renderNow(r) {
-    now.replaceChildren();
-    if (r.performer) now.append(el("p", { class: "who" }, r.performer));
-    if (r.context) now.append(el("p", { class: "ctx" }, r.context));
-    if (r.about) now.append(el("p", { class: "about" }, r.about));
-  }
-
-  function renderMap(r) {
-    const m = r.map || { core: "unknown" };
-    const added = m.added || [];
-    const omitted = new Set(m.omitted || []);
-    const repeated = m.repeated || {};
-    const order = m.order || coreIds.concat(added);
-    const stateText = {
-      source: "in the text",
-      unknown: "not documented for this recording",
-      omitted: "omitted in this recording",
-      added: "added in performance",
-    };
-
-    vmap.replaceChildren();
-    mapButtons = order.map((id) => {
-      let state = "source";
-      if (added.includes(id)) state = "added";
-      else if (m.core === "unknown") state = "unknown";
-      else if (omitted.has(id)) state = "omitted";
-
-      const num = byId.get(id).querySelector(".c-num").textContent.trim();
-      const b = el("button", { type: "button", "data-target": id, "data-state": state }, num);
-      if (repeated[id]) b.append(el("sup", {}, "×" + repeated[id]));
-      b.setAttribute("aria-label", data.unit + " " + num + ", " + stateText[state]);
-      hoverable(b, id);
-      b.addEventListener("focus", () => { hoverId = id; render(); });
-      b.addEventListener("blur", () => { hoverId = null; render(); });
-      b.addEventListener("click", () => {
-        pinnedId = id;
-        render();
-        byId.get(id).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-      });
-      const li = el("li");
-      li.append(b);
-      vmap.append(li);
-      return b;
-    });
-
-    caption.textContent = m.order
-      ? "In the order sung in this recording."
-      : r.id === "source"
-        ? "In the order of the text."
-        : "In the order of the text. The order sung in this recording is not documented.";
-    render();
-  }
-
   function select(r) {
-    renderNow(r);
+    now.replaceChildren();
+    now.append(el("p", { class: "ctx" }, r.context + "."));
+    if (r.about) now.append(el("p", { class: "about" }, r.about));
     mountPlayer(r);
-    renderMap(r);
   }
 
-  data.renditions.forEach((r, i) => {
-    const label = el("label");
-    const input = el("input", { type: "radio", name: "rendition", value: r.id });
-    input.checked = i === 0;
+  document.querySelectorAll('input[name="rendition"]').forEach((input) => {
+    const r = renditions.find((x) => x.id === input.value);
     input.addEventListener("change", () => select(r));
-    label.append(input, el("span", {}, r.label));
-    options.append(label);
+    if (input.checked) select(r);
   });
-
-  select(data.renditions[0]);
 })();

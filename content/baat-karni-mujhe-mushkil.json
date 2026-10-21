@@ -362,50 +362,33 @@
   ],
   "renditions": [
     {
-      "id": "source",
-      "label": "The poem",
-      "about": "Zafar’s nine couplets as published on Rekhta. This page translates six of them.",
-      "map": {
-        "core": "source"
-      }
-    },
-    {
       "id": "mehdi-hassan",
       "label": "Mehdi Hassan",
       "performer": "Mehdi Hassan",
-      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "context": "from the audio archives of Lutfullah Khan, listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "Whbfw_xWcvs"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
       "id": "farida-khanum",
       "label": "Farida Khanum",
       "performer": "Farida Khanum",
-      "context": "From the audio archives of Lutfullah Khan, listed on Rekhta",
+      "context": "from the audio archives of Lutfullah Khan, listed on Rekhta",
       "player": {
         "type": "youtube",
         "id": "huajWc8XyRE"
-      },
-      "map": {
-        "core": "unknown"
       }
     },
     {
       "id": "talat-aziz",
       "label": "Talat Aziz",
       "performer": "Talat Aziz",
-      "context": "Live at Jashn-e-Rekhta",
+      "context": "live at Jashn-e-Rekhta",
       "player": {
         "type": "youtube",
         "id": "0X9dcTE6ypw"
-      },
-      "map": {
-        "core": "unknown"
       }
     }
   ],
@@ -430,5 +413,6 @@
   "listing": {
     "meta": "Bahadur Shah Zafar · nine couplets, six translated · Devanagari, Urdu and Roman",
     "summary": "The last Mughal emperor laments that speech, company and the heart itself were never this difficult before: a personal lament that also reads as the fading of an era."
-  }
+  },
+  "textNote": "Zafar’s nine couplets as published on Rekhta. Six are translated here."
 }
