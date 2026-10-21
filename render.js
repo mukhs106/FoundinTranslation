@@ -63,7 +63,7 @@
 
   // Title and blurb
   root.appendChild(el("div", { "class": "content" }, [
-    el("h1", {}, [song.number + ". " + song.title.roman])
+    el("h1", { "class": "song-title" }, [song.number + ". " + song.title.roman])
   ]));
   root.appendChild(el("div", { "class": "grid-container" }, [
     el("h2", { "class": "text-1 deva", lang: "ur-Deva" }, [song.title.deva]),
