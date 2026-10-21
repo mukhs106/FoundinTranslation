@@ -65,7 +65,6 @@ outline: 1px solid var(--red);
 outline-offset: 4px;
 }
 
-
 /* [prev] / [next] */
 .pager {
   display: flex;
@@ -85,19 +84,6 @@ outline-offset: 4px;
   outline: 1px solid var(--red);
   outline-offset: 4px;
 }
-/* currently hidden 
-.scroll-to-top {
-position: fixed;
-bottom: 20px;
-right: 20px;
-width: 40px;
-height: 40px;
-cursor: pointer;
-z-index: 100;
-display: none;
-} */
-
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* 6 equal */
@@ -115,36 +101,10 @@ display: none;
 
 .text-2 {
   grid-column: 3 / span 3; 
-  /* word-wrap: break-word;
-  overflow-wrap: break-word;*/
 }
 
 .text-3 {
   grid-column: 2 / span 3; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-4 {
-  grid-column: 2 / span 3; /* text 4-7 for ghazals page */
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-5 {
-  grid-column: 4 / span 3; 
-  /* word-wrap: break-word;
-  overflow-wrap: break-word;*/
-}
-
-.text-6 {
-  grid-column: 2 / span 3; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-}
-
-.text-7 {
-  grid-column: 4 / span 3; 
   word-wrap: break-word; 
   overflow-wrap: break-word;
 }
@@ -389,32 +349,15 @@ display: none;
   }
 }
 
-
-
 .no-underline {
   text-decoration: none;
   color: inherit;
   }
 
-  .no-underline h2{
-    text-decoration: none;
-    color: inherit;
-    }
-
   .no-underline:hover {
     color: var(--red); /* was a third, off-palette red */
   }
 
-.instrument-serif-regular {
-font-family: var(--serif);
-font-weight: 400;
-font-style: normal;
-}
-.instrument-serif-regular-italic {
-font-family: var(--serif);
-font-weight: 400;
-font-style: italic;
-}
 /* Apply specific font styles to elements */
 p {
   font-family: var(--serif);
@@ -424,15 +367,6 @@ p {
   padding-right: var(--gutter);
   margin-bottom: 50px;
 }
-  h3 {
-  font-family: var(--serif);
-  font-size: var(--text);
-  font-weight: lighter;
-  /* padding-left: 160px; */
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-  margin-bottom: 0px;
-  }
 h2 {
 font-family: var(--serif);
 font-size: var(--h2);
@@ -464,13 +398,6 @@ margin-bottom: 20px; */
 .sumana-regular {
   font-family: var(--deva);
   font-weight: 400;
-  font-style: normal;
-  line-height: 1.3;
-}
-
-.sumana-bold {
-  font-family: var(--deva);
-  font-weight: 700;
   font-style: normal;
   line-height: 1.3;
 }
