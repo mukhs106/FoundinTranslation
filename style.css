@@ -31,7 +31,7 @@ box-sizing: border-box;
 body {
 background-color: var(--white);
 color: var(--black);
-font-family: "instrument-serif", serif;
+font-family: var(--serif);
 margin-top: 40px;
 padding-top: 60px;
 overflow-x: hidden;
