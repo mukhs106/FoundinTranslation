@@ -5,7 +5,9 @@
 // per line. `null` means "not written yet" (see the TODO comments).
 // `strong`: indexes of translation lines shown in bold (song 2's refrain).
 // `words`: glossary terms that appear in this couplet (exact text in `deva`).
-// `versions[].sung`: couplet ids in the order that rendition sings them.
+// `versions`: { singer, year, url, note, sung } per rendition. `url` links out to
+//   the recording; `sung` lists couplet ids in the order that rendition sings
+//   them (repeat an id for a reprise). The Versions block shows once a song has one.
 
 window.SONGS = [
   {

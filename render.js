@@ -93,10 +93,12 @@
     list.appendChild(el("div", { "class": "view-toggle", role: "group", "aria-label": "Show" }, views));
   }
 
-  song.couplets.forEach(function (c, n) {
+  var versions = song.versions || [];
+
+  var coupletNodes = song.couplets.map(function (c, n) {
     // Lines pair one to one only when both sides have the same number of lines
     var paired = !!(c.deva && c.translation && c.deva.length === c.translation.length);
-    list.appendChild(el("div", {
+    var node = el("div", {
       "class": "couplet",
       "data-id": c.id,
       "data-paired": paired,
@@ -105,12 +107,81 @@
       "aria-label": "Couplet " + (n + 1)
     }, [
       el("div", { "class": "original", lang: "ur-Deva" }, originalLines(c)),
-      el("div", { "class": "version", lang: "en" }, [
+      el("div", { "class": "english", lang: "en" }, [
         el("div", { "class": "gloss" }, lines(c.gloss)),
         el("div", { "class": "translation" }, lines(c.translation, c.strong))
       ])
-    ]));
+    ]);
+    // Couplet numbers in the margin, so the versions map can be read against the page
+    if (versions.length) node.appendChild(el("span", { "class": "couplet-n", "aria-hidden": "true" }, [String(n + 1)]));
+    list.appendChild(node);
+    return node;
   });
+
+  // Versions: one row per rendition, with a map of the couplets sung, in order.
+  // Selecting a row reorders the couplets to match; unsung ones fade to the end.
+  if (versions.length) {
+    var number = {};
+    song.couplets.forEach(function (c, n) { number[c.id] = n + 1; });
+
+    var rows = [{ label: "[as written]", sung: song.couplets.map(function (c) { return c.id; }) }]
+      .concat(versions.map(function (v) {
+        return {
+          label: v.singer + (v.year ? ", " + v.year : ""),
+          sung: (v.sung || []).filter(function (id) { return number[id]; }),
+          url: v.url,
+          note: v.note
+        };
+      }));
+
+    var picks = rows.map(function (row, r) {
+      var marks = row.sung.map(function (id) { return el("span", { "class": "map-mark" }, [String(number[id])]); });
+      var pick = el("button", {
+        type: "button",
+        "class": "version-pick",
+        "aria-pressed": r === 0,
+        "aria-label": row.label + ": couplets " + row.sung.map(function (id) { return number[id]; }).join(", ")
+      }, [
+        el("span", { "class": "version-name" }, [row.label]),
+        el("span", { "class": "version-map", "aria-hidden": "true" }, marks)
+      ]);
+      pick.addEventListener("click", function () {
+        picks.forEach(function (p) { p.setAttribute("aria-pressed", p === pick); });
+        showVersion(row.sung);
+      });
+      var cells = [pick];
+      if (row.url) {
+        cells.push(el("a", {
+          href: row.url, target: "_blank", rel: "noopener",
+          "class": "no-underline version-link",
+          "aria-label": "Listen to " + row.label + " (opens in a new tab)"
+        }, ["[listen]"]));
+      }
+      if (row.note) cells.push(el("span", { "class": "version-note" }, [row.note]));
+      return { pick: pick, row: el("li", { "class": "version-row" }, cells) };
+    });
+
+    root.appendChild(el("section", { "class": "versions", "aria-labelledby": "versions-title" }, [
+      el("h2", { id: "versions-title" }, ["Versions"]),
+      el("ul", {}, picks.map(function (p) { return p.row; }))
+    ]));
+    picks = picks.map(function (p) { return p.pick; });
+  }
+
+  // Reorders the couplet nodes themselves, so reading and Tab order follow what is shown
+  function showVersion(sung) {
+    var seen = {};
+    var order = sung.filter(function (id) { return !seen[id] && (seen[id] = true); });
+    coupletNodes.forEach(function (node) {
+      if (!seen[node.dataset.id]) order.push(node.dataset.id);
+    });
+    order.forEach(function (id) {
+      var node = list.querySelector('.couplet[data-id="' + id + '"]');
+      node.classList.toggle("unsung", !sung.length || sung.indexOf(id) < 0);
+      list.appendChild(node);
+    });
+  }
+
   root.appendChild(list);
 
   // Highlighting: hover (mouse), tap (touch), focus + arrow keys (keyboard)
