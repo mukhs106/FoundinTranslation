@@ -11,9 +11,6 @@ padding-top: 60px;
 overflow-x: hidden;
 }
 header {
-display: flex;
-justify-content: space-between;
-align-items: center;
 padding: 25px;
 background-color: #ffffff;
 position: fixed;
@@ -21,16 +18,23 @@ top: 0;
 width: 100%;
 z-index: 10;
 }
-.header-left {
+/* Site nav: [ghazals] [found in translation] [info]; the current page is red */
+.site-nav {
 display: flex;
+justify-content: space-between;
 align-items: center;
 }
-.header-right {
-color: rgb(0, 0, 0);
-margin: 0;
-text-align: right;
-font-family: "instrument-serif", serif;
-font-weight: 700; /* Bold weight */
+.nav-link {
+font-family: "Instrument Serif", serif;
+font-size: 30px;
+padding: 0 50px;
+}
+.nav-link[aria-current] {
+color: #850000;
+}
+.nav-link:focus-visible {
+outline: 1px solid #850000;
+outline-offset: 4px;
 }
 
 
@@ -438,12 +442,9 @@ margin-bottom: 20px; */
 
 /* Responsive design */
 @media (max-width: 768px) {
-header {
+.site-nav {
 flex-direction: column;
 align-items: flex-start;
-}
-.header-center p, .header-right p {
-font-size: 16px;
 }
  .grid-container {
     grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on smaller screens */

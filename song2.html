@@ -11,25 +11,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body data-song="aaj-jaane-ki-zidd-na-karo">
-  <main id="song"></main>
-
   <header>
-    <div class="header-left">
-      <a href="song.html" class="no-underline"> 
-          <h3>[ghazals]</h3>
-      </a>
-  </div>
-  <div class="header-center">
-      <a href="index.html" class="no-underline">
-          <h3>[found in translation]</h3>
-      </a>
-  </div>
-  <div class="header-right">
-      <a href="info.html" class="no-underline">
-          <h3>[info]</h3>
-      </a>
-  </div>
+    <nav class="site-nav" aria-label="Site">
+      <a href="song.html" class="nav-link no-underline" aria-current="true">[ghazals]</a>
+      <a href="index.html" class="nav-link no-underline">[found in translation]</a>
+      <a href="info.html" class="nav-link no-underline">[info]</a>
+    </nav>
   </header>
+  <main id="song"></main>
 
   <script src="songs.js"></script>
   <script src="render.js"></script>
