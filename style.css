@@ -11,7 +11,7 @@ padding-top: 60px;
 overflow-x: hidden;
 }
 header {
-padding: 25px;
+padding: clamp(12px, 2vw, 25px) clamp(16px, 5.25vw, 75px); /* the side padding used to sit on each nav link */
 background-color: #ffffff;
 position: fixed;
 top: 0;
@@ -21,13 +21,15 @@ z-index: 10;
 /* Site nav: [ghazals] [found in translation] [info]; the current page is red */
 .site-nav {
 display: flex;
+flex-wrap: wrap;
 justify-content: space-between;
 align-items: center;
+column-gap: 0.5em;
 }
 .nav-link {
 font-family: "Instrument Serif", serif;
 font-size: clamp(18px, 0.9rem + 1.2vw, 30px);
-padding: 0 50px;
+padding: 0;
 }
 .nav-link[aria-current] {
 color: #850000;
@@ -44,7 +46,7 @@ outline-offset: 4px;
   justify-content: space-between;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 25px 50px 50px;
+  padding: 25px clamp(16px, 3.5vw, 50px) 50px;
   font-family: "Instrument Serif", serif;
   font-size: clamp(20px, 1rem + 1.1vw, 30px);
 }
@@ -125,7 +127,7 @@ display: none;
 .couplets {
   max-width: 1100px;
   margin: 0 auto 50px;
-  padding: 0 50px;
+  padding: 0 clamp(16px, 3.5vw, 50px);
 }
 
 .couplets-head,
@@ -280,7 +282,7 @@ display: none;
 .versions {
   max-width: 1100px;
   margin: 0 auto 50px;
-  padding: 0 50px;
+  padding: 0 clamp(16px, 3.5vw, 50px);
 }
 
 .versions h2 {
@@ -392,8 +394,8 @@ p {
   font-family: "Instrument Serif", serif;
   font-size: clamp(20px, 1rem + 1.1vw, 30px);
   font-weight: lighter;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: clamp(16px, 3.5vw, 50px);
+  padding-right: clamp(16px, 3.5vw, 50px);
   margin-bottom: 50px;
 }
   h3 {
@@ -401,8 +403,8 @@ p {
   font-size: clamp(20px, 1rem + 1.1vw, 30px);
   font-weight: lighter;
   /* padding-left: 160px; */
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: clamp(16px, 3.5vw, 50px);
+  padding-right: clamp(16px, 3.5vw, 50px);
   margin-bottom: 0px;
   }
 h2 {
@@ -410,8 +412,8 @@ font-family: "Instrument Serif", serif;
 font-size: clamp(30px, 1.2rem + 2.2vw, 50px);
 font-weight: lighter;
 color: rgb(0, 0, 0);
-padding-left: 50px;
-padding-right: 50px;
+padding-left: clamp(16px, 3.5vw, 50px);
+padding-right: clamp(16px, 3.5vw, 50px);
 margin-bottom: 0px;
 line-height: 1.6;
 }
@@ -420,8 +422,8 @@ font-family: "Instrument Serif", serif;
 font-size: clamp(64px, 2rem + 9vw, 150px);
 font-weight: lighter;
 color: #850000;
-padding-left: 50px;
-padding-right: 50px;
+padding-left: clamp(16px, 3.5vw, 50px);
+padding-right: clamp(16px, 3.5vw, 50px);
 /* padding-top: 20px;
 margin-bottom: 20px; */
 }
@@ -475,14 +477,10 @@ margin-bottom: 20px; */
 
 /* Responsive design */
 @media (max-width: 768px) {
-.site-nav {
-flex-direction: column;
-align-items: flex-start;
-}
- .grid-container {
-    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns on smaller screens */
+  .grid-container {
+    grid-template-columns: minmax(0, 1fr); /* one column: titles and blurbs run full width */
   }
-  .text-1, .text-7 {
-    grid-column: 1 / span 2; /* Make text full width */
+  .grid-container > * {
+    grid-column: 1 / -1;
   }
 }
