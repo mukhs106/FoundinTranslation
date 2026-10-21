@@ -184,6 +184,21 @@
 
   root.appendChild(list);
 
+  // [prev] / [next] between songs, in songs.js order; the ends lead back to [ghazals].
+  // Song pages are named song<number>.html.
+  var at = window.SONGS.indexOf(song);
+  function pageLink(s, rel, text) {
+    if (!s) return el("a", { href: "song.html", "class": "no-underline" }, ["[ghazals]"]);
+    return el("a", {
+      href: "song" + s.number + ".html", rel: rel, "class": "no-underline",
+      "aria-label": text + ": " + s.number + ". " + s.title.roman
+    }, ["[" + text + "]"]);
+  }
+  root.appendChild(el("nav", { "class": "pager", "aria-label": "Ghazals" }, [
+    pageLink(window.SONGS[at - 1], "prev", "prev"),
+    pageLink(window.SONGS[at + 1], "next", "next")
+  ]));
+
   // Highlighting: hover (mouse), tap (touch), focus + arrow keys (keyboard)
   var active = null;
   var pointerType = "mouse";

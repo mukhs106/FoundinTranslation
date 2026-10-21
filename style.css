@@ -53,6 +53,26 @@ margin-top: 20px;
 .next-button:hover {
 color: #a60000;
 }
+
+/* [prev] / [next] */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 25px 50px 50px;
+  font-family: "Instrument Serif", serif;
+  font-size: 30px;
+}
+
+.pager a:only-child {
+  margin-left: auto; /* a lone [next] sits on the right */
+}
+
+.pager a:focus-visible {
+  outline: 1px solid #850000;
+  outline-offset: 4px;
+}
 /* currently hidden 
 .scroll-to-top {
 position: fixed;
