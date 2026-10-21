@@ -33,26 +33,6 @@ font-family: "instrument-serif", serif;
 font-weight: 700; /* Bold weight */
 }
 
-.next-button-container {
-text-align: right;
-margin-top: 20px;
-font-family: instrument-serif, serif;
-font-weight: lighter;
-}
-.next-button {
-border: none;
-font-family: "instrument-serif", serif;
-font-weight: lighter;
-font-size: x-large;
-background-color: rgba(255, 255, 255, 0);
-padding: 25px 75px;
-margin-left: 30px;
-margin-bottom: 20px;
-margin-top: 20px;
-}
-.next-button:hover {
-color: #a60000;
-}
 
 /* [prev] / [next] */
 .pager {
