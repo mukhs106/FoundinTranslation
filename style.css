@@ -157,6 +157,45 @@ display: none;
   font-family: "Sumana", serif;
 }
 
+/* [literal] / [translation] */
+.view-toggle {
+  display: flex;
+  gap: 0.5em;
+  margin: -10px 0 30px 50%;
+  padding-left: 25px; /* half the column gap: lines up with the translation column */
+}
+
+.view-toggle button {
+  font: inherit;
+  font-family: "Instrument Serif", serif;
+  font-size: 30px;
+  color: #000000;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.view-toggle button[aria-pressed="true"] {
+  color: #9d0000;
+}
+
+.view-toggle button:hover {
+  color: #850000;
+}
+
+/* Literal view: the gloss sits above the translation, so the gap shows */
+.gloss {
+  display: none;
+  font-style: italic;
+  color: #000000;
+}
+
+.couplets[data-view="literal"] .gloss {
+  display: block;
+  margin-bottom: 0.4em;
+}
+
 .couplet .line {
   display: block;
   position: relative; /* fixed paint order, so dimming a line never changes which line is under the pointer */

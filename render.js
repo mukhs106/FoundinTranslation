@@ -38,6 +38,21 @@
       el("h2", { "class": "translation" }, ["Translation"])
     ])
   ]);
+  list.dataset.view = "translation";
+
+  // [literal] / [translation]: literal lays the gloss over the translation.
+  // Hidden until at least one couplet in this song has a gloss.
+  if (song.couplets.some(function (c) { return c.gloss; })) {
+    var views = ["literal", "translation"].map(function (view) {
+      var b = el("button", { type: "button", "data-view": view, "aria-pressed": view === "translation" }, ["[" + view + "]"]);
+      b.addEventListener("click", function () {
+        list.dataset.view = view;
+        views.forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+      });
+      return b;
+    });
+    list.appendChild(el("div", { "class": "view-toggle", role: "group", "aria-label": "Show" }, views));
+  }
 
   song.couplets.forEach(function (c, n) {
     // Lines pair one to one only when both sides have the same number of lines
@@ -51,7 +66,10 @@
       "aria-label": "Couplet " + (n + 1)
     }, [
       el("div", { "class": "original", lang: "ur-Deva" }, lines(c.deva)),
-      el("div", { "class": "translation", lang: "en" }, lines(c.translation, c.strong))
+      el("div", { "class": "version", lang: "en" }, [
+        el("div", { "class": "gloss" }, lines(c.gloss)),
+        el("div", { "class": "translation" }, lines(c.translation, c.strong))
+      ])
     ]));
   });
   root.appendChild(list);
