@@ -546,6 +546,22 @@ margin-bottom: 20px; */
   }
 }
 
+/* Reduced motion: the words fade in and out in place, without scaling, zooming or blur */
+@keyframes fade-in-place {
+  0%, 80%, 100% {
+    opacity: 0;
+  }
+  25%, 40% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-container > div {
+    animation-name: fade-in-place;
+  }
+}
+
 @media (max-width: 768px) {
   .animated-text-wrapper {
     height: 60vh;
