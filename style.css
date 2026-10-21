@@ -196,6 +196,45 @@ display: none;
   margin-bottom: 0.4em;
 }
 
+/* Glossary words: underlined in the original; the note opens under the line */
+.term {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  text-indent: 0;
+  position: relative;
+  z-index: 1; /* above the next line's tall Devanagari line box, so the pointer reaches it */
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.term[aria-expanded="true"] {
+  text-decoration-color: #9d0000;
+}
+
+.term:focus-visible {
+  outline: 1px solid #850000;
+  outline-offset: 2px;
+}
+
+.term-note {
+  display: block;
+  font-family: "Instrument Serif", serif;
+  font-style: italic;
+  font-size: 0.75em;
+  color: #000000;
+  padding-left: 1em;
+  margin-bottom: 0.3em;
+}
+
+.term-note[hidden] {
+  display: none;
+}
+
 .couplet .line {
   display: block;
   position: relative; /* fixed paint order, so dimming a line never changes which line is under the pointer */

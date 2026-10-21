@@ -22,6 +22,45 @@
     });
   }
 
+  // Original lines, with glossary words as buttons and a hidden note after each line that has one
+  var noteCount = 0;
+  var boundary = /[\s\-'",.?!;:]/;
+
+  // First whole-word occurrence of term in text: edges must be line start/end, space, hyphen or punctuation
+  function find(text, term) {
+    for (var at = text.indexOf(term); at > -1; at = text.indexOf(term, at + 1)) {
+      var before = text.charAt(at - 1), after = text.charAt(at + term.length);
+      if ((!before || boundary.test(before)) && (!after || boundary.test(after))) return at;
+    }
+    return -1;
+  }
+  function originalLines(c) {
+    var terms = (c.words || []).filter(function (w) { return song.glossary[w]; })
+      .sort(function (a, b) { return b.length - a.length; });
+    var out = [];
+    (c.deva || []).forEach(function (text, i) {
+      var parts = [], notes = [], rest = text;
+      while (rest) {
+        // Earliest match wins; on a tie the longer term wins (terms are sorted longest first)
+        var hit = null;
+        terms.forEach(function (t) {
+          var at = find(rest, t);
+          if (at > -1 && (!hit || at < hit.at)) hit = { at: at, term: t };
+        });
+        if (!hit) { parts.push(rest); break; }
+        if (hit.at) parts.push(rest.slice(0, hit.at));
+        var g = song.glossary[hit.term], id = "note-" + (++noteCount);
+        parts.push(el("button", { type: "button", "class": "term", "aria-expanded": "false", "aria-controls": id }, [hit.term]));
+        notes.push(el("span", { "class": "term-note", id: id, lang: "en", hidden: "" },
+          [(g.roman ? g.roman + " — " : "") + (g.meaning || "")]));
+        rest = rest.slice(hit.at + hit.term.length);
+      }
+      out.push(el("span", { "class": "line", "data-line": i }, parts));
+      out = out.concat(notes);
+    });
+    return out;
+  }
+
   // Title and blurb
   root.appendChild(el("div", { "class": "content" }, [
     el("h1", {}, [song.number + ". " + song.title.roman])
@@ -65,7 +104,7 @@
       role: "group",
       "aria-label": "Couplet " + (n + 1)
     }, [
-      el("div", { "class": "original", lang: "ur-Deva" }, lines(c.deva)),
+      el("div", { "class": "original", lang: "ur-Deva" }, originalLines(c)),
       el("div", { "class": "version", lang: "en" }, [
         el("div", { "class": "gloss" }, lines(c.gloss)),
         el("div", { "class": "translation" }, lines(c.translation, c.strong))
@@ -120,7 +159,7 @@
 
   // Tap toggles; tapping the same line again clears
   list.addEventListener("click", function (e) {
-    if (pointerType === "mouse") return;
+    if (pointerType === "mouse" || e.target.closest(".term")) return;
     var t = target(e);
     if (!t) return clear();
     if (active && active.couplet === t.couplet && active.line === t.line) clear();
@@ -149,5 +188,37 @@
     line = line === null ? (e.key === "ArrowDown" ? 0 : count - 1)
                          : (line + (e.key === "ArrowDown" ? 1 : -1) + count) % count;
     setActive(couplet, line);
+  });
+
+  // Glossary notes: hover or focus shows a note; click or tap keeps it open until clicked again
+  function showNote(term, open) {
+    document.getElementById(term.getAttribute("aria-controls")).hidden = !open;
+  }
+
+  function isOpen(term) { return term.getAttribute("aria-expanded") === "true"; }
+
+  list.addEventListener("click", function (e) {
+    var term = e.target.closest(".term");
+    if (!term) return;
+    term.setAttribute("aria-expanded", !isOpen(term));
+    showNote(term, isOpen(term) || (pointerType === "mouse" && term.matches(":hover")));
+  });
+
+  list.addEventListener("pointerover", function (e) {
+    var term = e.target.closest(".term");
+    if (term && e.pointerType === "mouse") showNote(term, true);
+  });
+
+  list.addEventListener("pointerout", function (e) {
+    var term = e.target.closest(".term");
+    if (term && e.pointerType === "mouse" && !term.contains(e.relatedTarget) && !isOpen(term)) showNote(term, false);
+  });
+
+  list.addEventListener("focusin", function (e) {
+    if (e.target.classList.contains("term")) showNote(e.target, true);
+  });
+
+  list.addEventListener("focusout", function (e) {
+    if (e.target.classList.contains("term") && !isOpen(e.target)) showNote(e.target, false);
   });
 })();
