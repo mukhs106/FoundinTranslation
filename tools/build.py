@@ -16,9 +16,12 @@ CONTENT = ROOT / "content"
 SITE = json.loads((CONTENT / "site.json").read_text())
 GHAZALS = [json.loads((CONTENT / f"{slug}.json").read_text()) for slug in SITE["order"]]
 
+# Google Fonts families. The serif is on every page; script fonts are only
+# requested by pages that set text in that script.
 FONTS = {
-    "base": "family=Instrument+Serif:ital@0;1&family=Sumana:wght@400;700",
-    "urdu": "&family=Noto+Nastaliq+Urdu:wght@400;600",
+    "serif": "family=Instrument+Serif:ital@0;1",
+    "deva": "family=Sumana:wght@400;700",
+    "arab": "family=Noto+Nastaliq+Urdu:wght@400;600",
 }
 
 # How each script of a poem is marked up. Urdu poetry stays Urdu (ur) whatever
@@ -38,8 +41,8 @@ NAV = [("ghazals.html", "ghazals"), ("index.html", "found in translation"), ("in
 e = html.escape
 
 
-def head(title, description, urdu=False, html_attrs="", comment=""):
-    fonts = FONTS["base"] + (FONTS["urdu"] if urdu else "")
+def head(title, description, scripts=(), html_attrs="", comment=""):
+    fonts = "&".join([FONTS["serif"]] + [FONTS[s] for s in ("deva", "arab") if s in scripts])
     return f"""<!DOCTYPE html>
 <html lang="en"{html_attrs}>
 <head>
@@ -74,9 +77,10 @@ def pager(prev=None, nxt=None):
     return "\n".join(out)
 
 
-def script_span(script, text, cls="sv"):
+def script_span(script, text, cls=None):
     s = SCRIPTS[script]
-    return f'<span class="{cls}" data-s="{script}" lang="{s["lang"]}" dir="{s["dir"]}">{text}</span>'
+    cls_attr = f' class="{cls}"' if cls else ""
+    return f'<span{cls_attr} data-s="{script}" lang="{s["lang"]}" dir="{s["dir"]}">{text}</span>'
 
 
 def lines(ls):
@@ -89,15 +93,15 @@ def lines(ls):
 
 def couplet(c, scripts, translations, unit):
     variants = "".join(
-        f'\n          <p class="sv" data-s="{s}" lang="{SCRIPTS[s]["lang"]}" dir="{SCRIPTS[s]["dir"]}">{lines(c["text"][s])}</p>'
+        f'\n          <p data-s="{s}" lang="{SCRIPTS[s]["lang"]}" dir="{SCRIPTS[s]["dir"]}">{lines(c["text"][s])}</p>'
         for s in scripts if s in c["text"]
     )
     if not c["text"]:
         variants = f'\n          <p class="text-note">{c["textNote"]}</p>'
     trs = "".join(
-        f'\n          <p class="tv" data-t="{t}" lang="{TRANSLATIONS[t]["lang"]}">{lines(c["translation"][t])}</p>'
+        f'\n          <p data-t="{t}" lang="{TRANSLATIONS[t]["lang"]}">{lines(c["translation"][t])}</p>'
         if t in c.get("translation", {}) else
-        f'\n          <p class="tv tr-missing" data-t="{t}">Not translated on this page.</p>'
+        f'\n          <p class="tr-missing" data-t="{t}">Not translated on this page.</p>'
         for t in translations
     )
     gloss = ""
@@ -105,7 +109,7 @@ def couplet(c, scripts, translations, unit):
         items = []
         for g in c["gloss"]:
             terms = "".join(
-                script_span(s, g["term"][s] if s != "latn" else g["translit"], "sv term")
+                script_span(s, g["term"][s] if s != "latn" else g["translit"], "term")
                 for s in scripts if s == "latn" or s in g["term"]
             )
             items.append(f'<div><dt>{terms}<span class="tl" lang="ur-Latn">{g["translit"]}</span></dt><dd>{g["meaning"]}</dd></div>')
@@ -131,10 +135,12 @@ def options(name, legend, items, checked):
 
 def script_option_label(s):
     sc = SCRIPTS[s]
-    native = f' <bdi class="native" lang="{sc["lang"]}" dir="{sc["dir"]}">{sc["native"]}</bdi>' if sc["native"] and s != "deva" else ""
-    if s == "deva":
-        native = f' <bdi class="native" lang="hi">{sc["native"]}</bdi>'
-    return f'{sc["name"]}{native}'
+    if not sc["native"]:
+        return sc["name"]
+    # The script's own name is a Hindi word in Devanagari, an Urdu word in Urdu script.
+    lang = "hi" if s == "deva" else sc["lang"]
+    dir_attr = f' dir="{sc["dir"]}"' if sc["dir"] == "rtl" else ""
+    return f'{sc["name"]} <bdi class="native" lang="{lang}"{dir_attr}>{sc["native"]}</bdi>'
 
 
 def selectable(r):
@@ -197,7 +203,7 @@ def ghazal_page(i, g):
         f'<li>{s["label"]}: <a href="{s["href"]}">{s["title"]}</a></li>' for s in g["sources"]
     )
     playable = [r for r in g["renditions"] if selectable(r)]
-    perf = json.dumps(playable, ensure_ascii=False)
+    perf = json.dumps(playable, ensure_ascii=False).replace("</", "<\\/")
     flags = "\n".join(f"    - {f}" for f in g.get("flags", []))
     comment = f"""
   <!--
@@ -213,7 +219,7 @@ def ghazal_page(i, g):
         reading += " The Roman transliteration is the same Urdu in Latin letters, a way to read the original rather than a translation."
     reading += " Glossary notes, shown when you select a " + unit + ", explain single words; they are not translations."
 
-    return f"""{head(f"{title_latn} | Found in Translation", re.sub('<[^>]+>', '', g['listing']['summary']), "arab" in scripts, f' data-script="{scripts[0]}" data-trans="{translations[0]}"', comment)}
+    return f"""{head(f"{title_latn} | Found in Translation", re.sub('<[^>]+>', '', g['listing']['summary']), scripts, f' data-script="{scripts[0]}" data-trans="{translations[0]}"', comment)}
 {nav(None)}
 
   <main id="main" class="work">
@@ -327,9 +333,9 @@ def info_page():
 
 def home_page():
     drift = "\n".join(
-        f'      <div>{script_span(d["script"], d["text"], "drift-text")}</div>' for d in SITE["home"]["drift"]
+        f'      <div>{script_span(d["script"], d["text"])}</div>' for d in SITE["home"]["drift"]
     )
-    return f"""{head("Found in Translation", "A collection of ghazals in their original scripts, with translations and recordings.", True)}
+    return f"""{head("Found in Translation", "A collection of ghazals in their original scripts, with translations and recordings.", {d["script"] for d in SITE["home"]["drift"]})}
 {nav("index.html")}
 
   <main id="main" class="home">
@@ -368,6 +374,12 @@ def visible_text(page):
     return page
 
 
+def check_links(pages):
+    for name, page in pages.items():
+        for href in re.findall(r'href="([^"#:]+\.html)', page):
+            assert href in pages, f"{name} links to missing page {href}"
+
+
 def main():
     pages = {"index.html": home_page(), "ghazals.html": list_page(), "info.html": info_page()}
     for i, g in enumerate(GHAZALS):
@@ -375,6 +387,7 @@ def main():
         pages[g["legacy"]] = redirect(f"{g['slug']}.html")
     for old, new in SITE["redirects"].items():
         pages[old] = redirect(new)
+    check_links(pages)
     for name, page in pages.items():
         assert "—" not in visible_text(page), f"em dash in visible copy of {name}"
         (ROOT / name).write_text(page)

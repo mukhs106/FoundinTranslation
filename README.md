@@ -18,4 +18,4 @@ python3 tools/build.py
   - `renditions[].player` is one of `{"type": "youtube", "id": ...}`, `{"type": "bandcamp", "track": ..., "href": ...}` or `{"type": "audio", "src": "audio/file.mp3"}` for a file you are allowed to host. Leave it out and add `missing` when no playable recording exists.
   - `flags` are internal notes. They appear only as an HTML comment.
 
-`style.css` and `ghazal.js` are shared by every page.
+`style.css` is shared by every page; `ghazal.js` runs on the four ghazal pages. The build stops if visible copy contains an em dash or a page links to an `.html` file that does not exist.

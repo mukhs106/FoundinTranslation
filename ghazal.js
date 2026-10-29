@@ -105,7 +105,8 @@
   function mountPlayer(r) {
     player.replaceChildren();
     const p = r.player;
-    const label = r.performer + ", " + r.label;
+    // r.label already names the performer, e.g. "Farida Khanum, 2015".
+    const label = r.label;
     if (p && p.type === "youtube") {
       player.append(el("iframe", {
         class: "yt",
