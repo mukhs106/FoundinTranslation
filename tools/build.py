@@ -197,7 +197,7 @@ def ghazal_page(i, g):
         f'<li>{s["label"]}: <a href="{s["href"]}">{s["title"]}</a></li>' for s in g["sources"]
     )
     playable = [r for r in g["renditions"] if selectable(r)]
-    perf = json.dumps(playable, ensure_ascii=False)
+    perf = json.dumps(playable, ensure_ascii=False).replace("</", "<\\/")
     flags = "\n".join(f"    - {f}" for f in g.get("flags", []))
     comment = f"""
   <!--
@@ -368,6 +368,12 @@ def visible_text(page):
     return page
 
 
+def check_links(pages):
+    for name, page in pages.items():
+        for href in re.findall(r'href="([^"#:]+\.html)', page):
+            assert href in pages, f"{name} links to missing page {href}"
+
+
 def main():
     pages = {"index.html": home_page(), "ghazals.html": list_page(), "info.html": info_page()}
     for i, g in enumerate(GHAZALS):
@@ -375,6 +381,7 @@ def main():
         pages[g["legacy"]] = redirect(f"{g['slug']}.html")
     for old, new in SITE["redirects"].items():
         pages[old] = redirect(new)
+    check_links(pages)
     for name, page in pages.items():
         assert "—" not in visible_text(page), f"em dash in visible copy of {name}"
         (ROOT / name).write_text(page)
